@@ -325,7 +325,7 @@ body {
 .mada-section h2, 
 .section-title, 
 .mada-section-title {
-    font-size: 36px !important;
+    font-size: 30px !important;
     font-weight: bold !important;
     color: #14403F !important;
     text-align: right !important;
@@ -346,11 +346,14 @@ body {
 }
 
 .step-card {
+    width: 100% !important;           /* ليأخذ المساحة المتاحة داخل العمود */
+    max-width: 380px !important;      /* حددي أقصى عرض للكرت الواحد (كبريه أو صغريه حسب ذوقك) */
+    margin: 0 auto !important;
     padding: 45px 40px !important; /* تكبير مربعات الكروت لتصير أوسع وأوضح */
     border-radius: 20px;
     text-align: right;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    min-height: 215px; /* ضمان ارتفاع مريح للبطاقة */
+    min-height: 230px; /* ضمان ارتفاع مريح للبطاقة */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -373,13 +376,14 @@ body {
 }
 
 .step-card span {
-    font-size: 0.95rem !important;
+    font-size: 20px !important;
     opacity: 0.9;
     font-weight: 500;
+   font-weight: Medium;
 }
 
 .step-card h3 {
-    font-size: 1.5rem !important; /* تكبير عنوان الكروت الداخلية */
+    font-size: 20px !important; /* تكبير عنوان الكروت الداخلية */
     font-weight: bold;
     margin: 10px 0;
     color: #ffffff !important;
@@ -392,7 +396,46 @@ body {
     color: #F9FAFB !important;
     line-height: 1.5;
 }
+/* ==========================================================================
+   تنسيق الأيقونات داخل كروت رحلتك مع مدى
+   ========================================================================== */
+.step-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    direction: rtl;
+}
 
+.step-num-text {
+    font-size: 0.95rem !important;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* تنسيق وحجم الأيقونة */
+.step-icon {
+    font-size: 38px; /* حجم الأيقونة */
+    color: #ffffff;  /* لون الأيقونة أبيض */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+}
+
+.step-card-body h3 {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    color: #ffffff !important;
+}
+
+.step-card-body p {
+    font-size: 0.9rem !important;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.5;
+}
 
 /* ==========================================================================
    تنسيق وتكبير قسم "لماذا مدى؟" (الإحصائيات)

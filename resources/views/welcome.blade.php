@@ -87,24 +87,53 @@
 
  
 <!-- 3. قسم رحلتك مع مدى (خطوات العمل) -->
+<!-- 3. قسم رحلتك مع مدى (خطوات العمل) -->
 <section class="mada-section">
-    <h2 class="section-title">رحلتك مع مدى</h2>
+    <h2 class="mada-section-title">رحلتك مع مدى</h2>
     <div class="steps-grid">
-        <div class="step-card step-card-dark">
-            <span class="step-badge">الخطوة 1</span>
-            <h3 class="step-title">اختبر مستواك</h3>
-            <p class="step-desc">اختبار قصير تظهر نتيجته على صفحتك</p>
+        
+        <!-- الخطوة 1 -->
+        <div class="step-card">
+            <div class="step-card-header">
+                <span class="step-num-text">الخطوة 1</span>
+                <div class="step-icon">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+            </div>
+            <div class="step-card-body">
+                <h3>اختبر مستواك</h3>
+                <p>اختبار قصير تظهر نتيجته على صفحتك</p>
+            </div>
         </div>
-        <div class="step-card step-card-medium">
-            <span class="step-badge">الخطوة 2</span>
-            <h3 class="step-title">ابن ملفك</h3>
-            <p class="step-desc">مهاراتك ومستواك في مكان واحد وانت تبرز من يظهر</p>
+
+        <!-- الخطوة 2 -->
+        <div class="step-card">
+            <div class="step-card-header">
+                <span class="step-num-text">الخطوة 2</span>
+                <div class="step-icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+            <div class="step-card-body">
+                <h3>ابنِ ملفك </h3>
+                <p>مهاراتك ومستواك في مكان واحد وانت تبرز من يظهر</p>
+            </div>
         </div>
-        <div class="step-card step-card-orange">
-            <span class="step-badge">الخطوة 3</span>
-            <h3 class="step-title">جهات تبحث عنك</h3>
-            <p class="step-desc">جهات موثقة تطلبك حسب المجال والمستوى</p>
+
+        <!-- الخطوة 3 -->
+        <div class="step-card">
+            <div class="step-card-header">
+                <span class="step-num-text">الخطوة 3</span>
+                <div class="step-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="step-card-body">
+                <h3>جهات تبحث عنك</h3>
+                <p>جهات موثقة تطلبك حسب المجال والمستوى</p>
+            </div>
         </div>
+
     </div>
 </section>
 
