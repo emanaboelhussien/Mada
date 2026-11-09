@@ -57,9 +57,13 @@ body {
 
 
 .hero-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     background: linear-gradient(180deg, #0F2B2B 0%, #14403F 50%, #0E5A58 100%);
     color: white;
-    padding: 50px 40px;
 }
 
 .hero-container {
@@ -285,4 +289,363 @@ body {
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     direction: rtl;
+}
+/* ==========================================================================
+   تنسيقات أقسام صفحة "مدى" (المكملة)
+   ========================================================================== */
+
+/* 1. قسم رحلتك مع مدى (خطوات العمل) */
+/* ==========================================================================
+   تنسيق قسم "رحلتك مع مدى" (مطابق للفيجما 100%)
+   ========================================================================== */
+/* ==========================================================================
+   تعديلات عامة للخلفية وحجم العناوين
+   ========================================================================== */
+body {
+    background-color: #F7F6F2 !important; /* لون الخلفية المطلوب لباقي السكشن */
+}
+
+
+/* ==========================================================================
+   ضبط محاذاة العنوان والمسافة مع السيكشن العلوي
+   ========================================================================== */
+
+/* 1. ضبط السيكشن وتنزيله لتحت مسافة مريحة عن السيكشن العلوي */
+.mada-section, section {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding-top: 70px !important;    /* تنزيل السيكشن لتحت عن الهيرو تبع امبارح */
+    padding-bottom: 50px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;   /* إلغاء الـ padding الجانبي عشان يطابق محاذاة العناوين مع الكروت */
+    direction: rtl !important;
+}
+
+/* 2. جعل العنوان على نفس توازي ومحاذاة المربع الأول من اليمين تماماً */
+.mada-section h2, 
+.section-title, 
+.mada-section-title {
+    font-size: 36px !important;
+    font-weight: bold !important;
+    color: #14403F !important;
+    text-align: right !important;
+    direction: rtl !important;
+    margin-top: 0 !important;
+    margin-bottom: 25px !important;
+    padding-right: 0 !important;   /* لضمان الوقوف على بداية المربع الأول من اليمين بالضبط */
+    padding-left: 0 !important;
+}
+
+/* 3. التأكد من أن شبكة المربعات مطابقة لنفس العرض والتوازي */
+.steps-grid, .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    direction: rtl !important;
+    width: 100% !important;
+}
+
+.step-card {
+    padding: 45px 40px !important; /* تكبير مربعات الكروت لتصير أوسع وأوضح */
+    border-radius: 20px;
+    text-align: right;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    min-height: 215px; /* ضمان ارتفاع مريح للبطاقة */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ترتيب ألوان الخطوات من اليمين لليسار (1 ثم 2 ثم 3) */
+.step-card:nth-child(1) {
+    background-color: #14403F !important;
+    color: #ffffff !important;
+}
+
+.step-card:nth-child(2) {
+    background-color: #117A76 !important;
+    color: #ffffff !important;
+}
+
+.step-card:nth-child(3) {
+    background-color: #F2A541 !important;
+    color: #ffffff !important;
+}
+
+.step-card span {
+    font-size: 0.95rem !important;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.step-card h3 {
+    font-size: 1.5rem !important; /* تكبير عنوان الكروت الداخلية */
+    font-weight: bold;
+    margin: 10px 0;
+    color: #ffffff !important;
+}
+
+.step-card p {
+    font-size: 0.9rem !important; /* تكبير النص الشرحي داخل الكرت */
+    opacity: 0.95;
+    margin: 0;
+    color: #F9FAFB !important;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   تنسيق وتكبير قسم "لماذا مدى؟" (الإحصائيات)
+   ========================================================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    direction: rtl;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-card, .stat-box {
+    background-color: #0E2A2B !important;
+    color: #ffffff !important;
+    padding: 40px 25px !important; /* تكبير المربعات */
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card h3, .stat-box h3 {
+    font-size: 2.8rem !important; /* تكبير النسب المئوية */
+    font-weight: 800;
+    color: #E59835 !important;
+    margin: 0 0 15px 0;
+}
+
+.stat-card p, .stat-box p {
+    font-size: 0.95rem !important; /* تكبير النص */
+    line-height: 1.6;
+    color: #F1F5F9 !important;
+    margin: 0;
+}
+
+.stats-footer-note {
+    color: #4B5563 !important;
+    font-size: 0.9rem !important;
+    margin-top: 20px;
+    text-align: right;
+    direction: rtl;
+}
+
+
+/* 3. قسم أحدث الفرص */
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.opp-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #F1F5F9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.opp-card .tags-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.opp-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1E293B;
+    margin: 0 0 4px 0;
+    text-align: right;
+}
+
+.opp-card .subtitle {
+    font-size: 0.75rem;
+    color: #64748B;
+    margin: 0 0 16px 0;
+    text-align: right;
+}
+
+.opp-card .dates-info {
+    font-size: 0.75rem;
+    color: #475569;
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.opp-card .dates-info p { margin: 4px 0; }
+.opp-card .text-red { color: #EF4444; font-weight: 500; }
+
+.opp-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #F1F5F9;
+}
+
+/* تنسيق الـ Badges والأزرار المصغرة داخل الفرص */
+.badge-teal-light { background-color: #CCFBF1; color: #0F766E; font-size: 0.75rem; padding: 4px 12px; border-radius: 9999px; font-weight: 500; }
+.badge-amber-light { background-color: #FEF3C7; color: #B45309; font-size: 0.75rem; padding: 4px 12px; border-radius: 9999px; font-weight: 500; }
+.badge-gray-light { background-color: #F1F5F9; color: #475569; font-size: 0.75rem; padding: 4px 12px; border-radius: 9999px; }
+
+.status-badge { font-size: 0.75rem; padding: 4px 12px; border-radius: 8px; font-weight: bold; }
+.status-orange { background-color: #FEF3C7; color: #92400E; }
+.status-green { background-color: #DCFCE7; color: #166534; }
+.status-teal { background-color: #CCFBF1; color: #115E59; }
+
+.btn-detail-outline {
+    border: 1px solid #0E7C7B;
+    color: #0E7C7B;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.btn-detail-outline:hover {
+    background-color: #F0FDFA;
+}
+
+
+/* 4. قسم كيف تعمل المنصة؟ */
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.how-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.border-sky-custom { border: 2px solid #38BDF8; }
+.border-gray-custom { border: 1px solid #F1F5F9; }
+
+.absolute-badge {
+    position: absolute;
+    top: -12px;
+    right: 32px;
+    padding: 4px 16px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.badge-sky-bg { background-color: #E0F2FE; color: #0369A1; }
+.badge-teal-bg { background-color: #CCFBF1; color: #0F766E; }
+
+.how-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 0;
+    text-align: right;
+}
+
+.how-card li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    color: #334155;
+}
+
+.number-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.circle-sky { background-color: #F0F9FF; color: #0284C7; }
+.circle-teal { background-color: #F0FDFA; color: #0D9488; }
+
+
+/* 5. القسم الداكن السفلي (CTA) والـ Footer */
+.cta-bottom-banner {
+    background-color: #0b4f4c;
+    color: white;
+    padding: 48px 32px;
+    max-width: 1150px;
+    margin: 48px auto;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media(min-width: 768px) {
+    .cta-bottom-banner { flex-direction: row; }
+}
+
+.cta-text-side {
+    text-align: right;
+    margin-bottom: 24px;
+}
+@media(min-width: 768px) {
+    .cta-text-side { margin-bottom: 0; }
+}
+
+.cta-text-side h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.cta-text-side p {
+    font-size: 0.875rem;
+    color: #E2E8F0;
+    margin: 0;
+}
+
+.btn-cta-yellow {
+    background-color: #FBBF24;
+    color: #111827;
+    font-weight: bold;
+    padding: 12px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background 0.3s;
+}
+.btn-cta-yellow:hover {
+    background-color: #F59E0B;
+}
+
+.main-site-footer {
+    background-color: #062c2a;
+    color: #94A3B8;
+    padding: 24px 32px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #134E4A;
+}
+
+@media(min-width: 768px) {
+    .main-site-footer { flex-direction: row; }
 }
