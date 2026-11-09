@@ -9,3 +9,21 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+/* تنسيقات منصة مدى المخصصة */
+.bg-mada-dark {
+    background-color: #0b4f4c;
+}
+
+.bg-mada-footer {
+    background-color: #062c2a;
+}
+
+.mada-card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mada-card:hover {
+    transform: translateY(-3px);
+}
