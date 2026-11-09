@@ -1,0 +1,288 @@
+/* إعدادات عامة للخطوط والمسافات */
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#0E7C7B;
+}
+
+.navbar h2 {
+    font-size: 32px;      
+    font-weight: bold;
+    margin: 0;
+}
+.nav-links {
+    display: flex;
+    gap: 35px; 
+}
+.nav-links a {
+    color: #4A5E5C;
+    margin-left: 20px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #0E7C7B;
+}
+
+.auth-buttons .btn-outline {
+    background-color: transparent;
+    border: 1px solid #0E7C7B;
+    color: #0E7C7B;
+    padding: 6px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
+
+.auth-buttons .btn-solid {
+    background-color: #0E7C7B;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
+.hero-section {
+    background: linear-gradient(180deg, #0F2B2B 0%, #14403F 50%, #0E5A58 100%);
+    color: white;
+    padding: 50px 40px;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    gap: 40px;
+    direction: rtl;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-content h1 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.hero-content .highlight {
+    color: #E59539;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 5px 15px;
+    max-width: 500px;
+    margin-bottom: 15px;
+    direction: ltr; 
+}
+.search-box i {
+    color: #0E7C7B;
+    font-size: 16px;
+    margin-right: 8px; 
+    margin-left: 5px;
+}
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+    background: transparent;
+}
+
+
+
+.search-box .search-btn {
+    background-color: #0E7C7B;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #14403F;
+}
+
+.tags-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    direction: rtl;
+}
+
+.tag {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    direction: rtl;
+}
+
+.btn-orange {
+    background-color: #f59e0b;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-outline-border {
+    background-color: transparent;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1.5px solid white;
+}
+
+.btn-outline-border:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/* حاوية البطاقات العامة */
+.hero-images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: ltr;
+}
+
+.cards-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* المسافة بين البطاقات */
+    direction: ltr; /* لترتيب البطاقات بجانب بعضها بشكل صحيح */
+}
+
+/* تنسيق البطاقة الرئيسية في المنتصف */
+.main-card {
+    width: 180px;
+    height: 270px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border: 3px solid #38bdf8;
+    z-index: 2;
+}
+
+.main-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تنسيق البطاقات الجانبية */
+.side-card {
+    width: 150px;
+    height: 230px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.side-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* البادج العلوي للبطاقة الوسطى (تطوير الويب) - تم ضبطه ليغطي العرض بشكل أنيق */
+.top-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    background-color: #ffffff;
+    color: #0b3c49;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 6px 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    direction: rtl;
+    text-align: center;
+}
+
+/* البادج للبطاقة الجانبية (تحليل البيانات) */
+.mini-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    color: #0b3c49;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 6px 8px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* إشعار الطلب السفلي في البطاقة الرئيسية */
+.bottom-notification {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    background-color: #ffffff;
+    color: #0b3c49;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    direction: rtl;
+}
