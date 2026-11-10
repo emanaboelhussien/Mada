@@ -8,6 +8,8 @@
     <!-- رابط مكتبة الأيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+
+
     <!-- ربط ملف الـ CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -143,19 +145,19 @@
     
     <div class="stats-grid">
         <div class="stat-card">
-            <h3 class="stat-number">50%</h3>
+            <h3><span class="counter" data-target="50">0</span>%</h3>
             <p class="stat-desc">
                 يرون أن الفرص المنتهية أو غير الحقيقية أكبر صعوباتهم
             </p>
         </div>
         <div class="stat-card">
-            <h3 class="stat-number">65%</h3>
+            <h3><span class="counter" data-target="65">0</span>%</h3>
             <p class="stat-desc">
                 يمنعهم شرط الخبرة السابقة من القبول
             </p>
         </div>
         <div class="stat-card">
-            <h3 class="stat-number">90%</h3>
+            <h3><span class="counter" data-target="90">0</span>%</h3>
             <p class="stat-desc">
                 لم يجربوا منصة تقيّم مستواهم وتعرضه للجهات
             </p>
@@ -165,8 +167,8 @@
 </section>
 
 <!-- قسم أحدث الفرص -->
-<section class="mada-section">
-    <h2 class="section-title">أحدث الفرص</h2>
+<section class="mada-section opportunities-section">
+    <h2 class="mada-section-title">أحدث الفرص</h2>
     
     <div class="opportunities-grid">
         <!-- الفرصة الأولى -->
@@ -176,6 +178,7 @@
                     <span class="tag tag-teal">تدريب ميداني</span>
                     <span class="tag tag-gray">مفتوحة</span>
                 </div>
+                
                 <h3 class="opp-title">متدرب تطوير ويب</h3>
                 <p class="opp-subtitle">اسم الجهة - تطوير ويب</p>
                 <div class="opp-dates">
@@ -193,7 +196,7 @@
         <div class="opp-card">
             <div class="opp-card-body">
                 <div class="opp-tags">
-                    <span class="tag tag-orange">منحة</span>
+                    <span class="tag tag-gray">منحة</span>
                     <span class="tag tag-gray">مفتوحة</span>
                 </div>
                 <h3 class="opp-title">منحة دراسية</h3>
@@ -204,7 +207,7 @@
                 </div>
             </div>
             <div class="opp-card-footer">
-                <span class="badge-status badge-green">تنتهي قريباً</span>
+                <span class="badge-status badge-orange">تنتهي قريباً</span>
                 <a href="#" class="btn-details">التفاصيل</a>
             </div>
         </div>
@@ -230,7 +233,6 @@
         </div>
     </div>
 </section>
-
 <!-- قسم كيف تعمل المنصة؟ -->
 <section class="mada-section">
     <h2 class="section-title">كيف تعمل المنصة؟</h2>
@@ -290,6 +292,6 @@
     <p>2026© فريق مدى</p>
     <p>مدى - مشروع تخرج جامعة الأقصى - كلية تكنولوجيا وعلوم الحاسوب - قسم تكنولوجيا المعلومات التطبيقية</p>
 </footer>
-
+<script src="{{ asset('js/counter.js') }}"></script>
 </body>
 </html>
