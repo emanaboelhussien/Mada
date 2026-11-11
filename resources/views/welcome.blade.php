@@ -234,26 +234,17 @@
     </div>
 </section>
 <!-- قسم كيف تعمل المنصة؟ -->
-<section class="mada-section">
-    <h2 class="section-title">كيف تعمل المنصة؟</h2>
+<section class="mada-section how-it-works-section">
+    <h2 class="mada-section-title">كيف تعمل المنصة؟</h2>
     
     <div class="how-it-works-grid">
         <!-- بطاقة الجهات -->
         <div class="how-card border-sky">
-            <div class="how-badge badge-sky">الجهات</div>
+            <div class="how-badge badge-teal">الجهات</div>
             <ul class="how-list">
-                <li>
-                    <span>سجل جهتك وانتظر الموافقة</span>
-                    <span class="step-num num-sky">1</span>
-                </li>
-                <li>
-                    <span>ابحث عن الطلبة وفلتر النتائج</span>
-                    <span class="step-num num-sky">2</span>
-                </li>
-                <li>
-                    <span>أرسل طلب تواصل للطلاب المناسبين</span>
-                    <span class="step-num num-sky">3</span>
-                </li>
+                <li><span class="step-num-text" dir="ltr">1.</span> <span>سجل جهتك وانتظر الموافقة</span></li>
+                <li><span class="step-num-text" dir="ltr">2.</span> <span>ابحث عن الطلبة وفلتر النتائج</span></li>
+                <li><span class="step-num-text" dir="ltr">3.</span> <span>أرسل طلب تواصل للطلاب المناسبين</span></li>
             </ul>
         </div>
 
@@ -261,32 +252,24 @@
         <div class="how-card border-teal">
             <div class="how-badge badge-teal">طالب</div>
             <ul class="how-list">
-                <li>
-                    <span>سجل وأنشئ ملفك</span>
-                    <span class="step-num num-teal">1</span>
-                </li>
-                <li>
-                    <span>اختبر مستواك في مجالك</span>
-                    <span class="step-num num-teal">2</span>
-                </li>
-                <li>
-                    <span>تصل إليك الجهات وتتواصل معك بموافقتك</span>
-                    <span class="step-num num-teal">3</span>
-                </li>
+                <li><span class="step-num-text" dir="ltr">1.</span> <span>سجل وأنشئ ملفك</span></li>
+                <li><span class="step-num-text" dir="ltr">2.</span> <span>اختبر مستواك في مجالك</span></li>
+                <li><span class="step-num-text" dir="ltr">3.</span> <span>تصل إليك الجهات وتتواصل معك بموافقتك</span></li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- قسم الدعوة للإجراء (CTA) -->
+<!-- قسم الدعوة للإجراء (جاهز تعرف مستواك الحقيقي؟) -->
 <section class="cta-section">
-    <div class="cta-text">
-        <h2>جاهز تعرف مستواك الحقيقي؟</h2>
-        <p>أنشئ حسابك وابدأ الاختبار الآن.</p>
+    <div class="cta-container">
+        <div class="cta-text">
+            <h2>جاهز تعرف مستواك الحقيقي؟</h2>
+            <p>أنشئ حسابك وابدأ الاختبار الآن.</p>
+        </div>
+        <a href="#" class="btn-cta">أبدأ الآن</a>
     </div>
-    <a href="#" class="btn-cta">أبدأ الآن</a>
 </section>
-
 <!-- الفوتر (Footer) -->
 <footer class="main-footer">
     <p>2026© فريق مدى</p>

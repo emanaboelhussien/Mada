@@ -633,67 +633,139 @@ body {
     color: #FFFFFF;
 }
 
-/* 4. قسم كيف تعمل المنصة؟ */
+/* تنسيقات قسم كيف تعمل المنصة؟ */
+.how-it-works-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 1. ترتيب البطاقات بالاتجاه الطبيعي (الجهات يمين، طالب يسار) */
 .how-it-works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
+    gap: 30px;
+    direction: ltr; /* لضمان تمركز الجهات أولاً ثم طالب حسب ترتيب HTML */
 }
 
 .how-card {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 16px;
-    padding: 32px;
+    padding: 35px 25px;
     position: relative;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.border-sky-custom { border: 2px solid #38BDF8; }
-.border-gray-custom { border: 1px solid #F1F5F9; }
-
-.absolute-badge {
-    position: absolute;
-    top: -12px;
-    right: 32px;
-    padding: 4px 16px;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-.badge-sky-bg { background-color: #E0F2FE; color: #0369A1; }
-.badge-teal-bg { background-color: #CCFBF1; color: #0F766E; }
-
-.how-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 16px 0 0 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     text-align: right;
 }
 
-.how-card li {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-bottom: 16px;
-    font-size: 0.875rem;
-    color: #334155;
-}
-
-.number-circle {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
+/* الشارة على اليمين كما هي */
+.how-badge {
+    position: absolute;
+    top: -14px;
+    right: 30px;
+    padding: 4px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: bold;
 }
-.circle-sky { background-color: #F0F9FF; color: #0284C7; }
-.circle-teal { background-color: #F0FDFA; color: #0D9488; }
 
 
+
+.badge-teal {
+    background-color: #E3F1EE;
+    color: #0E7C7B;
+}
+
+/* القائمة لضمان محاذاة الرقم والنص بالترتيب الصحيح */
+.how-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 0 0 !important;
+    text-align: right !important;
+}
+
+.how-list li {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    font-size: 1rem !important;
+    color: #334155 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.how-list li:last-child {
+    border-bottom: none !important;
+}
+
+.step-txt {
+    display: inline-block;
+    direction: rtl;
+}
+
+.step-num-text {
+    font-weight: bold;
+    display: inline-block;
+    direction: ltr !important;
+    unicode-bidi: isolate;
+}
+
+/* 4. تنسيق قسم الـ CTA السفلي (النص يمين والزر يسار بمسافة صحيحة) */
+.cta-section {
+    background-color: #14403F;
+    color: #FFFFFF;
+    padding: 40px 50px;
+    margin-top: 60px;
+    border-radius: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: space-between; /* تفريق النص عن الزر تماماً */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    direction: rtl; /* لضمان أن النص باليمين والزر باليسار */
+}
+
+.cta-text {
+    text-align: right;
+}
+
+.cta-text h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.cta-text p {
+    font-size: 1rem;
+    color: #CBD5E1;
+    margin: 0;
+}
+
+/* زر أبدأ الآن */
+.btn-cta {
+    background-color: #E59835;
+    color: #FFFFFF;
+    padding: 12px 35px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-cta:hover {
+    background-color: #D2872A;
+}
 /* 5. القسم الداكن السفلي (CTA) والـ Footer */
 .cta-bottom-banner {
     background-color: #0b4f4c;
