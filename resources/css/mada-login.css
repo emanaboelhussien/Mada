@@ -1,0 +1,189 @@
+/* تنسيقات صفحة تسجيل الدخول - منصة مدى */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.login-body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* الحاوية الرئيسية الكبيرة */
+.login-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse; /* لقلب الأقسام بحيث يكون النموذج يمين والبار يسار */
+}
+
+/* قسم نموذج تسجيل الدخول (الأيمن) */
+.login-form-section {
+    width: 50%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+/* الحقول والنماذج */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.375rem;
+}
+
+.text-input {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 0.875rem;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.2s;
+}
+
+.text-input:focus {
+    border-color: #0b4f4c;
+    box-shadow: 0 0 0 2px rgba(11, 79, 76, 0.2);
+}
+
+.error-border {
+    border-color: #f87171 !important;
+}
+
+.error-border:focus {
+    box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
+}
+
+.error-text {
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+}
+
+/* زر تسجيل الدخول */
+.submit-btn {
+    width: 100%;
+    background-color: #0b4f4c;
+    color: white;
+    font-weight: 600;
+    padding: 0.625rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #083c3a;
+}
+
+/* رابط إنشاء حساب */
+.register-link-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.register-link {
+    color: #0b4f4c;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* القسم الجانبي الداكن (الأيسر) */
+.login-sidebar-section {
+    width: 50%;
+    background-color: #0b4f4c;
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar-main-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.feature-bullet {
+    display: inline-block;
+    width: 4px;
+    height: 1.5rem;
+    background-color: #f59e0b; /* لون الخط الأصفر/الذهبي */
+    border-radius: 9999px;
+}
+
+/* التجاوب مع الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+    .login-form-section, .login-sidebar-section {
+        width: 100%;
+        padding: 2rem;
+    }
+}
