@@ -8,7 +8,7 @@
     <!-- رابط مكتبة الأيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-
+   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- ربط ملف الـ CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -38,7 +38,7 @@
     <section class="hero-section">
         <div class="hero-container">
             
-            <!-- القسم الأيمن: النصوص والبحث والزر -->
+          
             <div class="hero-content">
     <h1>أثبت مهارتك، ودع <span class="highlight">الفرص</span> تصلك</h1>
     <p>اختبار مستوى ، وجهات تبحث عنك، وفرص تدريب ومنح موثقة لطلبة تكنولوجيا المعلومات في غزة</p>
@@ -63,20 +63,17 @@
 <div class="hero-images">
     <div class="cards-wrapper">
         
-        <!-- البطاقة الجانبية الأولى (يسار) -->
         <div class="side-card">
             <img src="{{ asset('images/1.jpg') }}" alt="طالبة">
             <div class="mini-badge">تحليل البيانات - المستوى: متوسط</div>
         </div>
 
-        <!-- البطاقة الرئيسية المنتصفة (البارزة) -->
         <div class="main-card">
             <img src="{{ asset('images/2.jpg') }}" alt="طالبة متفوقة">
            
             <div class="bottom-notification">طلب تواصل جديد من [اسم الجهة] بانتظار موافقتك</div>
         </div>
 
-        <!-- البطاقة الجانبية الثانية (يمين) -->
         <div class="side-card">
              <div class="top-badge">تطوير الويب - المستوى: متقدم</div>
             <img src="{{ asset('images/3.jpg') }}" alt="طالبة">
@@ -88,13 +85,11 @@
     </section>
 
  
-<!-- 3. قسم رحلتك مع مدى (خطوات العمل) -->
-<!-- 3. قسم رحلتك مع مدى (خطوات العمل) -->
+<!--  قسم رحلتك مع مدى  -->
 <section class="mada-section">
     <h2 class="mada-section-title">رحلتك مع مدى</h2>
     <div class="steps-grid">
         
-        <!-- الخطوة 1 -->
         <div class="step-card">
             <div class="step-card-header">
                 <span class="step-num-text">الخطوة 1</span>
@@ -108,7 +103,6 @@
             </div>
         </div>
 
-        <!-- الخطوة 2 -->
         <div class="step-card">
             <div class="step-card-header">
                 <span class="step-num-text">الخطوة 2</span>
@@ -122,7 +116,6 @@
             </div>
         </div>
 
-        <!-- الخطوة 3 -->
         <div class="step-card">
             <div class="step-card-header">
                 <span class="step-num-text">الخطوة 3</span>
@@ -260,8 +253,7 @@
     </div>
 </section>
 
-<!-- قسم الدعوة للإجراء (جاهز تعرف مستواك الحقيقي؟) -->
-<!-- 1. قسم الـ CTA لوحده -->
+<!-- (جاهز تعرف مستواك الحقيقي؟) -->
 <section class="cta-section">
     <div class="cta-container">
         <div class="cta-text">
@@ -274,7 +266,6 @@
     </div>
 </section>
 
-<!-- 2. الفوتر السفلي خارج قسم الـ CTA تماماً -->
 <footer class="main-site-footer">
     <div class="footer-container">
         <p class="footer-right">مدى-مشروع تخرج جامعة الأقصى- كلية تكنولوجيا و علوم الحاسوب-قسم تكنولوجيا المعلومات التطبيقية</p>
@@ -285,7 +276,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 <script src="{{ asset('js/counter.js') }}"></script>
-<!-- استدعاء ملف الـ JavaScript المستقل -->
 <script src="{{ asset('js/scroll-to-top.js') }}"></script>
 </body>
 </html>

@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل الدخول - منصة مدى</title>
-    <!-- استدعاء خط كايرو للتصميم -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <!-- استدعاء ملف الـ CSS المستقل -->
     <link rel="stylesheet" href="{{ asset('css/mada-login.css') }}">
 </head>
 <body class="login-body">
 
-    <!-- الحاوية الرئيسية -->
     <div class="login-container">
         
-        <!-- القسم الأيسر (الخلفية الداكنة مع المميزات) -->
+
         <div class="login-sidebar-section">
             <h2 class="sidebar-main-title">
                 أثبت مهارتك، ودع الفرص تصلك
@@ -36,7 +35,7 @@
             </ul>
         </div>
 
-        <!-- القسم الأيمن (نموذج تسجيل الدخول باللون الأبيض) -->
+
         <div class="login-form-section">
             
             <!-- زر العودة للرئيسية -->

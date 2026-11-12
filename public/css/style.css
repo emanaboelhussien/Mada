@@ -1,7 +1,7 @@
 /* إعدادات عامة للخطوط والمسافات */
 body {
     margin: 0;
-    font-family: Tahoma, sans-serif;
+font-family: 'Tajawal', sans-serif !important;
     background-color: #f8f9fa;
 }
 
@@ -12,16 +12,16 @@ body {
     left: 0 !important;
     width: 100% !important;
     z-index: 1000 !important;
-    background-color: rgba(255, 255, 255, 0.95) !important; /* خلفية بيضاء شفافة قليلاً لناعمة */
-    backdrop-filter: blur(8px) !important; /* تأثير ضبابي أنيق للخلفية */
-    padding: 18px 30px !important; /* حجم مبدئي مريح */
+    background-color: rgba(255, 255, 255, 0.95) !important; 
+    backdrop-filter: blur(8px) !important; 
+    padding: 18px 30px !important; 
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     color: #0E7C7B !important;
     box-sizing: border-box !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; /* حركة انسيابية ناعمة جداً */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; 
 }
 .navbar h2 {
     font-size: 32px;      
@@ -199,7 +199,6 @@ body {
 .btn-outline-border:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-/* حاوية البطاقات العامة */
 .hero-images {
     flex: 1;
     display: flex;
@@ -211,11 +210,10 @@ body {
 .cards-wrapper {
     display: flex;
     align-items: center;
-    gap: 15px; /* المسافة بين البطاقات */
-    direction: ltr; /* لترتيب البطاقات بجانب بعضها بشكل صحيح */
+    gap: 15px; 
+    direction: ltr; 
 }
 
-/* تنسيق البطاقة الرئيسية في المنتصف */
 .main-card {
     width: 180px;
     height: 270px;
@@ -233,7 +231,6 @@ body {
     object-fit: cover;
 }
 
-/* تنسيق البطاقات الجانبية */
 .side-card {
     width: 150px;
     height: 230px;
@@ -250,7 +247,6 @@ body {
     object-fit: cover;
 }
 
-/* البادج العلوي للبطاقة الوسطى (تطوير الويب) - تم ضبطه ليغطي العرض بشكل أنيق */
 .top-badge {
     position: absolute;
     top: 10px;
@@ -267,7 +263,6 @@ body {
     text-align: center;
 }
 
-/* البادج للبطاقة الجانبية (تحليل البيانات) */
 .mini-badge {
     position: absolute;
     bottom: 12px;
@@ -283,7 +278,6 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* إشعار الطلب السفلي في البطاقة الرئيسية */
 .bottom-notification {
     position: absolute;
     bottom: 10px;
@@ -299,38 +293,22 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     direction: rtl;
 }
-/* ==========================================================================
-   تنسيقات أقسام صفحة "مدى" (المكملة)
-   ========================================================================== */
 
-/* 1. قسم رحلتك مع مدى (خطوات العمل) */
-/* ==========================================================================
-   تنسيق قسم "رحلتك مع مدى" (مطابق للفيجما 100%)
-   ========================================================================== */
-/* ==========================================================================
-   تعديلات عامة للخلفية وحجم العناوين
-   ========================================================================== */
 body {
-    background-color: #F7F6F2 !important; /* لون الخلفية المطلوب لباقي السكشن */
+    background-color: #F7F6F2 !important; 
 }
 
 
-/* ==========================================================================
-   ضبط محاذاة العنوان والمسافة مع السيكشن العلوي
-   ========================================================================== */
-
-/* 1. ضبط السيكشن وتنزيله لتحت مسافة مريحة عن السيكشن العلوي */
 .mada-section, section {
     max-width: 1200px !important;
     margin: 0 auto !important;
-    padding-top: 70px !important;    /* تنزيل السيكشن لتحت عن الهيرو تبع امبارح */
+    padding-top: 70px !important;    
     padding-bottom: 50px !important;
     padding-left: 0 !important;
-    padding-right: 0 !important;   /* إلغاء الـ padding الجانبي عشان يطابق محاذاة العناوين مع الكروت */
+    padding-right: 0 !important;   
     direction: rtl !important;
 }
 
-/* 2. جعل العنوان على نفس توازي ومحاذاة المربع الأول من اليمين تماماً */
 .mada-section h2, 
 .section-title, 
 .mada-section-title {
@@ -341,11 +319,10 @@ body {
     direction: rtl !important;
     margin-top: 0 !important;
     margin-bottom: 25px !important;
-    padding-right: 0 !important;   /* لضمان الوقوف على بداية المربع الأول من اليمين بالضبط */
+    padding-right: 0 !important;   
     padding-left: 0 !important;
 }
 
-/* 3. التأكد من أن شبكة المربعات مطابقة لنفس العرض والتوازي */
 .steps-grid, .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -355,20 +332,19 @@ body {
 }
 
 .step-card {
-    width: 100% !important;           /* ليأخذ المساحة المتاحة داخل العمود */
-    max-width: 380px !important;      /* حددي أقصى عرض للكرت الواحد (كبريه أو صغريه حسب ذوقك) */
+    width: 100% !important;           
+    max-width: 380px !important;     
     margin: 0 auto !important;
-    padding: 45px 40px !important; /* تكبير مربعات الكروت لتصير أوسع وأوضح */
+    padding: 45px 40px !important; 
     border-radius: 20px;
     text-align: right;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    min-height: 230px; /* ضمان ارتفاع مريح للبطاقة */
+    min-height: 230px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* ترتيب ألوان الخطوات من اليمين لليسار (1 ثم 2 ثم 3) */
 .step-card:nth-child(1) {
     background-color: #14403F !important;
     color: #ffffff !important;
@@ -392,22 +368,20 @@ body {
 }
 
 .step-card h3 {
-    font-size: 20px !important; /* تكبير عنوان الكروت الداخلية */
+    font-size: 20px !important; 
     font-weight: bold;
     margin: 10px 0;
     color: #ffffff !important;
 }
 
 .step-card p {
-    font-size: 0.9rem !important; /* تكبير النص الشرحي داخل الكرت */
+    font-size: 0.9rem !important; 
     opacity: 0.95;
     margin: 0;
     color: #F9FAFB !important;
     line-height: 1.5;
 }
-/* ==========================================================================
-   تنسيق الأيقونات داخل كروت رحلتك مع مدى
-   ========================================================================== */
+
 .step-card-header {
     display: flex;
     justify-content: space-between;
@@ -422,10 +396,9 @@ body {
     font-weight: 500;
 }
 
-/* تنسيق وحجم الأيقونة */
 .step-icon {
-    font-size: 45px; /* حجم الأيقونة */
-    color: #ffffff;  /* لون الأيقونة أبيض */
+    font-size: 45px; 
+    color: #ffffff;  
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,18 +418,15 @@ body {
     margin: 0;
     line-height: 1.5;
 }
-/* تأثير الهوفر لكروت رحلتك مع مدى */
 .step-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* ضمان سلاسة الحركة */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important; 
 }
 
 .step-card:hover {
-    transform: translateY(-8px) !important; /* ارتفاع الكرت للأعلى بمسافة بسيطة */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important; /* زيادة عمق الظل */
+    transform: translateY(-8px) !important; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important; 
 }
-/* ==========================================================================
-   تنسيق وتكبير قسم "لماذا مدى؟" (الإحصائيات)
-   ========================================================================== */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -469,21 +439,21 @@ body {
 .stat-card, .stat-box {
     background-color: #14403F !important;
     color: #ffffff !important;
-    padding: 40px 25px !important; /* تكبير المربعات */
+    padding: 40px 25px !important; 
     border-radius: 20px;
     text-align: right;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .stat-card h3, .stat-box h3 {
-    font-size: 30px !important; /* تكبير النسب المئوية */
+    font-size: 30px !important; 
     font-weight: 800;
     color: #E59539 !important;
     margin: 0 0 15px 0;
 }
 
 .stat-card p, .stat-box p {
-    font-size: 15px !important; /* تكبير النص */
+    font-size: 15px !important; 
     line-height: 1.6;
     color: #F1F5F9 !important;
     margin: 0;
@@ -497,7 +467,6 @@ body {
     direction: rtl;
 }
 
-/* تأثير الهوفر لكروت لماذا مدى */
 .stat-card, .stat-box {
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
@@ -507,7 +476,7 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 3. قسم أحدث الفرص */
+
 /* تنسيقات قسم أحدث الفرص */
 .opportunities-section {
     padding: 60px 20px;
@@ -522,7 +491,6 @@ body {
     gap: 25px;
 }
 
-/* تصميم الكرت الواحد */
 .opp-card {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
@@ -535,13 +503,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* تأثير الهوفر الجميل للكرت */
 .opp-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* الوسوم العلوية (Tags) */
 .opp-tags {
     display: flex;
     gap: 8px;
@@ -570,7 +536,6 @@ body {
     color: #14403F;
 }
 
-/* عنوان الفرصة والجهة */
 .opp-title {
     font-size: 1.25rem;
     font-weight: bold;
@@ -584,7 +549,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* التواريخ ومعلومات التحقق */
 .opp-dates {
     font-size: 0.88rem;
     color: #475569;
@@ -596,7 +560,6 @@ body {
     color: #DC2626;
 }
 
-/* تذييل الكرت (Footer) الأيقونات والأزرار في الأسفل */
 .opp-card-footer {
     display: flex;
     justify-content: space-between;
@@ -605,7 +568,7 @@ body {
     padding-top: 15px;
 }
 
-/* حالات التنبيه في التذييل */
+
 .badge-status {
     font-size: 0.85rem;
     font-weight: 600;
@@ -624,7 +587,7 @@ body {
     background-color: #E3F1EE;
 }
 
-/* زر التفاصيل */
+
 .btn-details {
     background-color: transparent;
     color: #0E7C7B;
@@ -649,12 +612,11 @@ body {
     margin: 0 auto;
 }
 
-/* 1. ترتيب البطاقات بالاتجاه الطبيعي (الجهات يمين، طالب يسار) */
 .how-it-works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    direction: ltr; /* لضمان تمركز الجهات أولاً ثم طالب حسب ترتيب HTML */
+    direction: ltr; 
 }
 
 .how-card {
@@ -667,7 +629,6 @@ body {
     text-align: right;
 }
 
-/* الشارة على اليمين كما هي */
 .how-badge {
     position: absolute;
     top: -14px;
@@ -685,7 +646,6 @@ body {
     color: #0E7C7B;
 }
 
-/* القائمة لضمان محاذاة الرقم والنص بالترتيب الصحيح */
 .how-list {
     list-style: none !important;
     padding: 0 !important;
@@ -721,8 +681,7 @@ body {
     unicode-bidi: isolate;
 }
 
-/* 4. تنسيق قسم الـ CTA السفلي (النص يمين والزر يسار بمسافة صحيحة) */
-/* قسم CTA باللون المتدرج المطابق للفيجما */
+
 .cta-section {
     background: linear-gradient(90deg, #1A4140 3%, rgba(14, 124, 123, 0.9) 100%) !important;
     color: #FFFFFF !important;
@@ -759,7 +718,6 @@ body {
     margin: 0 !important;
 }
 
-/* زر ابدأ الآن البرتقالي */
 .btn-cta {
     background-color: #E59539 !important;
     color: #FFFFFF !important;
@@ -776,7 +734,6 @@ body {
     background-color: #D28328 !important;
 }
 
-/* الفوتر السفلي المطابق تماماً لتصميم فيجما */
 .main-site-footer {
     background-color: #0E2A2B !important;
     color: #FFFFFF !important;
@@ -806,16 +763,15 @@ body {
     font-size: 0.8rem !important;
 }
 
-/* زر العودة للأعلى (دائرة مع أيقونة Font Awesome) */
 #scrollToTopBtn {
     position: fixed !important;
     bottom: 30px !important;
-   right: 30px !important; /* يظهر في الزاوية اليسرى السفلية، أو يمكنك تغييره إلى right: 30px لو تفضلين اليمين */
+   right: 30px !important; 
     z-index: 999 !important;
     width: 48px !important;
     height: 48px !important;
-    border-radius: 50% !important; /* دائرة كاملة */
-    background-color: #0E7C7B !important; /* اللون البترولي الخاص بالمنصة */
+    border-radius: 50% !important; 
+    background-color: #0E7C7B !important; 
     color: #FFFFFF !important;
     border: none !important;
     outline: none !important;
@@ -825,44 +781,38 @@ body {
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 4px 15px rgba(14, 124, 123, 0.35) !important;
-    
-    /* إخفاء الزر مبدئياً مع تجهيز حركة الظهور الناعمة */
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.35s ease !important;
 }
 
-/* كلاس الظهور عند النزول بالصفحة */
 #scrollToTopBtn.show {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;
 }
 
-/* تغيير اللون والحركة عند تمرير الماوس (Hover) */
 #scrollToTopBtn:hover {
-    background-color: #E59539 !important; /* يتحول للبرتقالي المميز عند التأشير */
+    background-color: #E59539 !important; 
     transform: translateY(-4px) !important;
     box-shadow: 0 6px 20px rgba(229, 149, 57, 0.4) !important;
 }
 
-/* 1. ضبط العناصر العامة لتكون مرنة وما تطلع عن حدود الشاشة */
 * {
     box-sizing: border-box !important;
 }
 
 body {
-    overflow-x: hidden !important; /* منع ظهور السكرول الأفقي المزعج */
+    overflow-x: hidden !important; 
 }
 
-/* 2. تحجيم الصور والعناصر تلقائياً لتناسب الشاشات */
 img {
     max-width: 100% !important;
     height: auto !important;
 }
 
-/* 3. التجاوب مع شاشات التابلت والأجهزة المتوسطة (أقل من 1024 بكسل) */
+/*  التجاوب مع شاشات التابلت والأجهزة المتوسطة (أقل من 1024 بكسل) */
 @media (max-width: 1024px) {
     .cta-container,
     .footer-container {
@@ -870,16 +820,15 @@ img {
     }
 }
 
-/* 4. التجاوب مع الشاشات الصغيرة والموبايل (أقل من 768 بكسل) */
+/*  التجاوب مع الشاشات الصغيرة والموبايل (أقل من 768 بكسل) */
 @media (max-width: 768px) {
-    /* جعل الناف بار متوافق مع الشاشات الصغيرة */
+    /*  الناف بار متوافق مع الشاشات الصغيرة */
     .navbar {
         padding: 12px 15px !important;
         flex-direction: column !important;
         gap: 10px !important;
     }
 
-    /* تكديس محتوى الـ CTA عمودياً بدلاً من جنباً لجنب */
     .cta-section {
         margin: 30px 15px !important;
         padding: 25px 20px !important;
@@ -896,7 +845,6 @@ img {
         text-align: center !important;
     }
 
-    /* تعديل الفوتر ليصبح نص فوق نص في الشاشات الصغيرة لضمان عدم التداخل */
     .main-site-footer {
         height: auto !important;
         padding: 15px 20px !important;
@@ -913,7 +861,6 @@ img {
         font-size: 0.75rem !important;
     }
 
-    /* نقل زر العودة للأعلى قليلاً لتجنب تغطيته لأي محتوى مهم عالهاتف */
     #scrollToTopBtn {
         bottom: 20px !important;
         right: 20px !important;
