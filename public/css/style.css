@@ -7,14 +7,22 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #ffffff;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#0E7C7B;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important; /* خلفية بيضاء شفافة قليلاً لناعمة */
+    backdrop-filter: blur(8px) !important; /* تأثير ضبابي أنيق للخلفية */
+    padding: 18px 30px !important; /* حجم مبدئي مريح */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    color: #0E7C7B !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; /* حركة انسيابية ناعمة جداً */
 }
-
 .navbar h2 {
     font-size: 32px;      
     font-weight: bold;
@@ -64,6 +72,7 @@ body {
     padding-right: 0 !important;
     background: linear-gradient(180deg, #0F2B2B 0%, #14403F 50%, #0E5A58 100%);
     color: white;
+    margin-top: 70px !important;
 }
 
 .hero-container {
@@ -713,124 +722,203 @@ body {
 }
 
 /* 4. تنسيق قسم الـ CTA السفلي (النص يمين والزر يسار بمسافة صحيحة) */
+/* قسم CTA باللون المتدرج المطابق للفيجما */
 .cta-section {
-    background-color: #14403F;
-    color: #FFFFFF;
-    padding: 40px 50px;
-    margin-top: 60px;
-    border-radius: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    background: linear-gradient(90deg, #1A4140 3%, rgba(14, 124, 123, 0.9) 100%) !important;
+    color: #FFFFFF !important;
+    padding: 28px 45px !important;
+    margin: 60px auto 50px auto !important;
+    border-radius: 10px !important;
+    max-width: 1200px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
 .cta-container {
-    display: flex;
-    justify-content: space-between; /* تفريق النص عن الزر تماماً */
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    direction: rtl; /* لضمان أن النص باليمين والزر باليسار */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    direction: rtl !important;
 }
 
 .cta-text {
-    text-align: right;
+    text-align: right !important;
 }
 
 .cta-text h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #FFFFFF;
+    font-size: 1.65rem !important;
+    font-weight: bold !important;
+    margin: 0 0 6px 0 !important;
+    color: #FFFFFF !important;
 }
 
 .cta-text p {
-    font-size: 1rem;
-    color: #CBD5E1;
-    margin: 0;
+    font-size: 0.95rem !important;
+    color: #E2E8F0 !important;
+    margin: 0 !important;
 }
 
-/* زر أبدأ الآن */
+/* زر ابدأ الآن البرتقالي */
 .btn-cta {
-    background-color: #E59835;
-    color: #FFFFFF;
-    padding: 12px 35px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    white-space: nowrap;
+    background-color: #E59539 !important;
+    color: #FFFFFF !important;
+    padding: 10px 32px !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease !important;
+    display: inline-block !important;
 }
 
 .btn-cta:hover {
-    background-color: #D2872A;
-}
-/* 5. القسم الداكن السفلي (CTA) والـ Footer */
-.cta-bottom-banner {
-    background-color: #0b4f4c;
-    color: white;
-    padding: 48px 32px;
-    max-width: 1150px;
-    margin: 48px auto;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: #D28328 !important;
 }
 
-@media(min-width: 768px) {
-    .cta-bottom-banner { flex-direction: row; }
-}
-
-.cta-text-side {
-    text-align: right;
-    margin-bottom: 24px;
-}
-@media(min-width: 768px) {
-    .cta-text-side { margin-bottom: 0; }
-}
-
-.cta-text-side h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 0 8px 0;
-}
-
-.cta-text-side p {
-    font-size: 0.875rem;
-    color: #E2E8F0;
-    margin: 0;
-}
-
-.btn-cta-yellow {
-    background-color: #FBBF24;
-    color: #111827;
-    font-weight: bold;
-    padding: 12px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: background 0.3s;
-}
-.btn-cta-yellow:hover {
-    background-color: #F59E0B;
-}
-
+/* الفوتر السفلي المطابق تماماً لتصميم فيجما */
 .main-site-footer {
-    background-color: #062c2a;
-    color: #94A3B8;
-    padding: 24px 32px;
-    font-size: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #134E4A;
+    background-color: #0E2A2B !important;
+    color: #FFFFFF !important;
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: 50px !important;
+    padding: 15px 40px !important;
+    box-sizing: border-box !important;
 }
 
-@media(min-width: 768px) {
-    .main-site-footer { flex-direction: row; }
+.footer-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    direction: rtl !important;
+    width: 100% !important;
+}
+
+.footer-right, .footer-left {
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+}
+
+/* زر العودة للأعلى (دائرة مع أيقونة Font Awesome) */
+#scrollToTopBtn {
+    position: fixed !important;
+    bottom: 30px !important;
+   right: 30px !important; /* يظهر في الزاوية اليسرى السفلية، أو يمكنك تغييره إلى right: 30px لو تفضلين اليمين */
+    z-index: 999 !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important; /* دائرة كاملة */
+    background-color: #0E7C7B !important; /* اللون البترولي الخاص بالمنصة */
+    color: #FFFFFF !important;
+    border: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(14, 124, 123, 0.35) !important;
+    
+    /* إخفاء الزر مبدئياً مع تجهيز حركة الظهور الناعمة */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.35s ease !important;
+}
+
+/* كلاس الظهور عند النزول بالصفحة */
+#scrollToTopBtn.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* تغيير اللون والحركة عند تمرير الماوس (Hover) */
+#scrollToTopBtn:hover {
+    background-color: #E59539 !important; /* يتحول للبرتقالي المميز عند التأشير */
+    transform: translateY(-4px) !important;
+    box-shadow: 0 6px 20px rgba(229, 149, 57, 0.4) !important;
+}
+
+/* 1. ضبط العناصر العامة لتكون مرنة وما تطلع عن حدود الشاشة */
+* {
+    box-sizing: border-box !important;
+}
+
+body {
+    overflow-x: hidden !important; /* منع ظهور السكرول الأفقي المزعج */
+}
+
+/* 2. تحجيم الصور والعناصر تلقائياً لتناسب الشاشات */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* 3. التجاوب مع شاشات التابلت والأجهزة المتوسطة (أقل من 1024 بكسل) */
+@media (max-width: 1024px) {
+    .cta-container,
+    .footer-container {
+        padding: 0 20px !important;
+    }
+}
+
+/* 4. التجاوب مع الشاشات الصغيرة والموبايل (أقل من 768 بكسل) */
+@media (max-width: 768px) {
+    /* جعل الناف بار متوافق مع الشاشات الصغيرة */
+    .navbar {
+        padding: 12px 15px !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* تكديس محتوى الـ CTA عمودياً بدلاً من جنباً لجنب */
+    .cta-section {
+        margin: 30px 15px !important;
+        padding: 25px 20px !important;
+        text-align: center !important;
+    }
+
+    .cta-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+
+    .cta-text {
+        text-align: center !important;
+    }
+
+    /* تعديل الفوتر ليصبح نص فوق نص في الشاشات الصغيرة لضمان عدم التداخل */
+    .main-site-footer {
+        height: auto !important;
+        padding: 15px 20px !important;
+    }
+
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+
+    .footer-right, .footer-left {
+        text-align: center !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* نقل زر العودة للأعلى قليلاً لتجنب تغطيته لأي محتوى مهم عالهاتف */
+    #scrollToTopBtn {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 16px !important;
+    }
 }

@@ -261,20 +261,31 @@
 </section>
 
 <!-- قسم الدعوة للإجراء (جاهز تعرف مستواك الحقيقي؟) -->
+<!-- 1. قسم الـ CTA لوحده -->
 <section class="cta-section">
     <div class="cta-container">
         <div class="cta-text">
             <h2>جاهز تعرف مستواك الحقيقي؟</h2>
-            <p>أنشئ حسابك وابدأ الاختبار الآن.</p>
+            <p>أنشئ حسابك و ابدأ الاختبار الآن.</p>
         </div>
-        <a href="#" class="btn-cta">أبدأ الآن</a>
+        <div>
+            <a href="#" class="btn-cta">ابدأ الآن</a>
+        </div>
     </div>
 </section>
-<!-- الفوتر (Footer) -->
-<footer class="main-footer">
-    <p>2026© فريق مدى</p>
-    <p>مدى - مشروع تخرج جامعة الأقصى - كلية تكنولوجيا وعلوم الحاسوب - قسم تكنولوجيا المعلومات التطبيقية</p>
+
+<!-- 2. الفوتر السفلي خارج قسم الـ CTA تماماً -->
+<footer class="main-site-footer">
+    <div class="footer-container">
+        <p class="footer-right">مدى-مشروع تخرج جامعة الأقصى- كلية تكنولوجيا و علوم الحاسوب-قسم تكنولوجيا المعلومات التطبيقية</p>
+        <p class="footer-left">فريق مدى 2026©</p>
+    </div>
 </footer>
+<button id="scrollToTopBtn" title="العودة للأعلى">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <script src="{{ asset('js/counter.js') }}"></script>
+<!-- استدعاء ملف الـ JavaScript المستقل -->
+<script src="{{ asset('js/scroll-to-top.js') }}"></script>
 </body>
 </html>
