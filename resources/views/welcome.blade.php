@@ -29,7 +29,7 @@
             <a href="#">المنح</a>
         </nav>
         <div class="auth-buttons">
-            <a href="#" class="btn-outline">تسجيل الدخول</a>
+           <a href="{{ url('/login') }}" class="btn-outline">تسجيل الدخول</a>
             <a href="#" class="btn-solid">إنشاء حساب</a>
         </div>
     </header>

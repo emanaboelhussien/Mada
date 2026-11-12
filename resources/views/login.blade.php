@@ -14,13 +14,36 @@
     <!-- الحاوية الرئيسية -->
     <div class="login-container">
         
-        <!-- القسم الأيمن (نموذج تسجيل الدخول باللون الأبيض) -->
+        <!-- القسم الأيسر (الخلفية الداكنة مع المميزات - وضعناه أولاً في الكود ليكون في اليسار) -->
+        <div class="login-sidebar-section">
+            <h2 class="sidebar-main-title">
+                أثبت مهارتك، ودع الفرص تصلك
+            </h2>
+
+            <ul class="features-list">
+                <li class="feature-item">
+                    <span class="feature-bullet"></span>
+                    <span>اختبار مستوى يظهر على ملفك</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-bullet"></span>
+                    <span>الجهات تبحث عنك وتتواصل معك بموافقتك</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-bullet"></span>
+                    <span>فرص تدريب ومنح موثقة في مكان واحد</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- القسم الأيمن (نموذج تسجيل الدخول باللون الأبيض - وضعناه ثانياً ليكون في اليمين) -->
         <div class="login-form-section">
             <h2 class="brand-title">مدى</h2>
             <h3 class="section-title">تسجيل الدخول</h3>
             <p class="section-subtitle">أهلاً بعودتك. سجل دخولك لمتابعة رحلتك.</p>
 
             <form action="#" method="POST">
+                @csrf
                 <!-- حقل البريد الإلكتروني -->
                 <div class="input-group">
                     <label class="input-label">البريد الإلكتروني</label>
@@ -46,28 +69,6 @@
             <div class="register-link-container">
                 ليس لديك حساب؟ <a href="#" class="register-link">انشئ حساباً</a>
             </div>
-        </div>
-
-        <!-- القسم الأيسر (الخلفية الداكنة مع المميزات) -->
-        <div class="login-sidebar-section">
-            <h2 class="sidebar-main-title">
-                أثبت مهارتك، ودع الفرص تصلك
-            </h2>
-
-            <ul class="features-list">
-                <li class="feature-item">
-                    <span class="feature-bullet"></span>
-                    <span>اختبار مستوى يظهر على ملفك</span>
-                </li>
-                <li class="feature-item">
-                    <span class="feature-bullet"></span>
-                    <span>الجهات تبحث عنك وتتواصل معك بموافقتك</span>
-                </li>
-                <li class="feature-item">
-                    <span class="feature-bullet"></span>
-                    <span>فرص تدريب ومنح موثقة في مكان واحد</span>
-                </li>
-            </ul>
         </div>
 
     </div>
