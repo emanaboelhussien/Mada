@@ -30,7 +30,7 @@
         </nav>
         <div class="auth-buttons">
            <a href="{{ url('/login') }}" class="btn-outline">تسجيل الدخول</a>
-            <a href="#" class="btn-solid">إنشاء حساب</a>
+           <a href="{{ route('register') }}" class="btn-solid">إنشاء حساب</a>
         </div>
     </header>
 
@@ -56,7 +56,7 @@
     </div>
 
     <div class="hero-buttons">
-        <a href="#" class="btn-orange">ابدأ كطالب</a>
+        <a href="{{ url('/register') }}" class="btn-orange">ابداً كطالب</a>
         <a href="#" class="btn-outline-border">سجل جهتك</a>
     </div>
 </div>

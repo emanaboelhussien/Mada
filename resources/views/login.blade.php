@@ -74,7 +74,7 @@
 
             <!-- رابط إنشاء حساب -->
             <div class="register-link-container">
-                ليس لديك حساب؟ <a href="#" class="register-link">انشئ حساباً</a>
+                ليس لديك حساب؟ <a href="{{ route('register') }}">انشئ حساباً</a>
             </div>
         </div>
 

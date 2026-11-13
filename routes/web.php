@@ -8,4 +8,6 @@ Route::get('/', function () {
 // صفحة تسجيل الدخول
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
+// صفحة إنشاء الحساب
+Route::view('/register', 'register')->name('register');
