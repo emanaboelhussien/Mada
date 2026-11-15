@@ -33,8 +33,8 @@
 <div class="input-group">
     <label class="input-label">نوع الحساب</label>
     <div class="role-selector">
-        <button type="button" class="role-btn active">طالب أو خريج</button>
-        <button type="button" class="role-btn">جهة</button>
+       <a href="{{ url('/register') }}" class="role-btn active">طالب أو خريج</a>
+    <a href="{{ url('/register-entity') }}" class="role-btn">جهة</a>
     </div>
 </div>
 

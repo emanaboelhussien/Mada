@@ -57,7 +57,7 @@
 
     <div class="hero-buttons">
         <a href="{{ url('/register') }}" class="btn-orange">ابداً كطالب</a>
-        <a href="#" class="btn-outline-border">سجل جهتك</a>
+        <a href="{{ url('/register-entity') }}" class="btn-outline-border">سجل جهتك</a>
     </div>
 </div>
 <div class="hero-images">

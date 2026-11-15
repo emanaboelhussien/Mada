@@ -11,3 +11,9 @@ Route::get('/login', function () {
 })->name('login');
 // صفحة إنشاء الحساب
 Route::view('/register', 'register')->name('register');
+
+// صفحة تسجيل جهة جديدة
+Route::view('/register-entity', 'register-entity')->name('register.entity');
+
+// صفحة لوحة تحكم الطالب
+Route::view('/student/dashboard', 'student-dashboard')->name('student.dashboard');

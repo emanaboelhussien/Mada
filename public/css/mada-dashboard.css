@@ -1,0 +1,388 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #F8F7F4;
+    color: #1F2937;
+    direction: rtl;
+}
+
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- القائمة الجانبية --- */
+.sidebar {
+    width: 250px;
+    background-color: #FFFFFF;
+    border-left: 1px solid #E5E7EB;
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-logo {
+    margin-bottom: 2.5rem;
+    padding-right: 0.75rem;
+}
+
+.sidebar-logo h2 {
+    color: #117A76;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.65rem;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-item:hover {
+    background-color: #F3F4F6;
+    color: #117A76;
+}
+
+.nav-item.active {
+    background-color: #E2F1F0;
+    color: #117A76;
+    font-weight: 700;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #F3F4F6;
+    padding-top: 1rem;
+}
+
+/* --- المحتوى الرئيسي --- */
+.main-content {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    max-width: 1200px;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* --- البطاقات الثلاث العلوية --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 0.85rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    border: 1px solid #F3F4F6;
+}
+
+.stat-title {
+    display: block;
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* --- الشبكة السفلية (4 بطاقات) --- */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.detail-card {
+    background-color: #FFFFFF;
+    padding: 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #F3F4F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    margin-bottom: 1.25rem;
+}
+
+.card-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-top: 0.25rem;
+}
+
+/* بطاقة المهارات */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #374151;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #117A76;
+    border-radius: 999px;
+}
+
+/* بطاقة الفرص */
+.opportunities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.opportunity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.opportunity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.opp-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.badge {
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge-open {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.badge-soon {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* الروابط السفلية للبطاقات */
+.card-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.card-link {
+    font-size: 0.85rem;
+    color: #117A76;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* بطاقة الخطوة التالية */
+.next-step-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.circular-progress {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: conic-gradient(#117A76 70%, #E5E7EB 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.progress-value {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checklist li.done {
+    color: #117A76;
+    font-weight: 600;
+}
+
+.checklist li.pending {
+    color: #6B7280;
+}
+
+.btn-complete {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #117A76;
+    color: #FFFFFF;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.btn-complete:hover {
+    background-color: #0E635F;
+}
+
+/* بطاقة آخر النشاطات */
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-teal {
+    background-color: #E2F1F0;
+    color: #117A76;
+}
+
+.icon-orange {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.activity-text {
+    flex: 1;
+    color: #374151;
+    font-weight: 500;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 900px) {
+    .dashboard-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+    .stats-grid, .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
