@@ -17,3 +17,6 @@ Route::view('/register-entity', 'register-entity')->name('register.entity');
 
 // صفحة لوحة تحكم الطالب
 Route::view('/student/dashboard', 'student-dashboard')->name('student.dashboard');
+
+// صفحة ملفي الشخصي 
+Route::view('/student/profile', 'student-profile')->name('student.profile');

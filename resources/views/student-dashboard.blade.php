@@ -25,10 +25,10 @@
                 <i class="fas fa-th-large"></i>
                 <span>لوحتي</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="far fa-user"></i>
-                <span>ملفي الشخصي</span>
-            </a>
+            <a href="{{ route('student.profile') }}" class="nav-item">
+             <i class="far fa-user"></i>
+            <span>ملفي الشخصي</span>
+           </a>
             <a href="#" class="nav-item">
                 <i class="far fa-check-square"></i>
                 <span>الاختبار</span>
@@ -153,8 +153,7 @@
                     </ul>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="btn-complete">أكمل ملفك</a>
-                </div>
+              <a href="{{ route('student.profile') }}" class="btn-complete">أكمل ملفك</a>                </div>
             </div>
 
             <!-- بطاقة 4: آخر النشاطات -->
