@@ -21,26 +21,24 @@
         </div>
 
         <nav class="sidebar-nav">
-            <a href="#" class="nav-item active">
+            <a href="{{ route('student.dashboard') }}" class="nav-item active">
                 <i class="fas fa-th-large"></i>
                 <span>لوحتي</span>
             </a>
             <a href="{{ route('student.profile') }}" class="nav-item">
-             <i class="far fa-user"></i>
-            <span>ملفي الشخصي</span>
-           </a>
-            <a href="#" class="nav-item">
-                <i class="far fa-check-square"></i>
-                <span>الاختبار</span>
-            </a>
-            <a href="#" class="nav-item">
+                <i class="far fa-user"></i>
+                <span>ملفي الشخصي</span>
+            <a href="{{ route('student.exam') }}" class="nav-item">
+    <i class="far fa-check-square"></i>
+    <span>الاختبار</span>
+</a>
+            <a href="{{ route('student.opportunities') }}" class="nav-item">
                 <i class="fas fa-graduation-cap"></i>
                 <span>التدريب والمنح</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="far fa-envelope"></i>
-                <span>الطلبات</span>
-            </a>
+            <a href="{{ route('student.requests') }}" class="nav-item">
+    <i class="far fa-envelope"></i>
+    <span>الطلبات</span>
+</a>
         </nav>
 
         <div class="sidebar-footer">
@@ -129,7 +127,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="card-link">عرض كل الفرص</a>
+                    <a href="{{ route('student.opportunities') }}" class="card-link">عرض كل الفرص</a>
                 </div>
             </div>
 
@@ -153,7 +151,8 @@
                     </ul>
                 </div>
                 <div class="card-action">
-              <a href="{{ route('student.profile') }}" class="btn-complete">أكمل ملفك</a>                </div>
+                    <a href="{{ route('student.profile') }}" class="btn-complete">أكمل ملفك</a>
+                </div>
             </div>
 
             <!-- بطاقة 4: آخر النشاطات -->

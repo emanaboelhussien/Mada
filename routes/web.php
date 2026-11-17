@@ -20,3 +20,9 @@ Route::view('/student/dashboard', 'student-dashboard')->name('student.dashboard'
 
 // صفحة ملفي الشخصي 
 Route::view('/student/profile', 'student-profile')->name('student.profile');
+//لصفحة التدريب والمنح
+Route::view('/student/opportunities', 'student-opportunities')->name('student.opportunities');
+
+Route::view('/student/requests', 'student-requests')->name('student.requests');
+
+Route::view('/student/exam', 'student-exam')->name('student.exam');

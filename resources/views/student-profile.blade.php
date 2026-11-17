@@ -29,18 +29,17 @@
                 <i class="far fa-user"></i>
                 <span>ملفي الشخصي</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="far fa-check-square"></i>
-                <span>الاختبار</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-graduation-cap"></i>
-                <span>التدريب والمنح</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="far fa-envelope"></i>
-                <span>الطلبات</span>
-            </a>
+   <a href="{{ route('student.exam') }}" class="nav-item">
+    <i class="far fa-check-square"></i>
+    <span>الاختبار</span>
+</a>
+         <a href="{{ route('student.opportunities') }}" class="nav-item">
+    <i class="fas fa-graduation-cap"></i>
+    <span>التدريب والمنح</span>
+<a href="{{ route('student.requests') }}" class="nav-item">
+    <i class="far fa-envelope"></i>
+    <span>الطلبات</span>
+</a>
         </nav>
 
         <div class="sidebar-footer">
