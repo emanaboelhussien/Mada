@@ -275,6 +275,27 @@
 <button id="scrollToTopBtn" title="العودة للأعلى">
     <i class="fas fa-arrow-up"></i>
 </button>
+
+
+<!-- شريط التنقل السريع للديمو (مؤقت لعرض المشروع على المهندس) -->
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #1e293b; color: #fff; padding: 12px 18px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); font-family: 'Tajawal', sans-serif; display: flex; align-items: center; gap: 10px; border: 2px solid #117A76;">
+    <span style="font-size: 13px; color: #94a3b8; font-weight: bold;">دخول سريع (Demo):</span>
+    
+    <a href="{{ route('student.dashboard') }}" style="background: #117A76; color: #fff; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
+        لوحة الطالب
+    </a>
+
+    <!-- تقدر زميلتك تفعل هذه الأزرار بس تخلص شاشاتها -->
+    <a href="/admin/dashboard" style="background: #334155; color: #fff; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 14px;">
+        الأدمن
+    </a>
+    
+    <a href="/entity/search" style="background: #334155; color: #fff; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 14px;">
+        الجهات
+    </a>
+</div>
+
+
 <script src="{{ asset('js/counter.js') }}"></script>
 <script src="{{ asset('js/scroll-to-top.js') }}"></script>
 </body>
