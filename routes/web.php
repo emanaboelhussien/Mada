@@ -26,3 +26,11 @@ Route::view('/student/opportunities', 'student-opportunities')->name('student.op
 Route::view('/student/requests', 'student-requests')->name('student.requests');
 
 Route::view('/student/exam', 'student-exam')->name('student.exam');
+//لوحة تحكم الادمن
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
+//رسائل النظام
+Route::get('/system-messages', function () {
+    return view('system-messages');
+})->name('system.messages');
