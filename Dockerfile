@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# تثبيت الأدوات اللازمة للاراول و Node.js لبناء التصميم
+# تثبيت الأدوات اللازمة للاراول و Node.js
 RUN apt-get update && apt-get install -y unzip git libzip-dev nodejs npm \
     && docker-php-ext-install zip
 
@@ -10,11 +10,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-# تثبيت حزم لاراول وبناء ملفات CSS/JS
+# تثبيت حزم لاراول وبناء ملفات التصميم (Vite)
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
-# إنشاء قاعدة البيانات
+# إنشاء مجلد وصلاحيات قاعدة البيانات
 RUN mkdir -p database && touch database/database.sqlite && chmod -R 777 database
 
+# تشغيل الـ Migrations ثم السيرفر
 CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
