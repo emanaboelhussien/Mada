@@ -13,5 +13,8 @@ COPY . .
 # تثبيت حزم لاراول
 RUN composer install --no-dev --optimize-autoloader
 
-# تشغيل السيرفر على البورت المطلوب
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
+# إنشاء مجلد وفايلي قاعدة البيانات وتفعيل الجداول وتعديل الصلاحيات تلقائياً
+RUN mkdir -p database && touch database/database.sqlite && chmod -R 777 database
+
+# تشغيل الـ Migrations ثم السيرفر على البورت المطلوب
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
