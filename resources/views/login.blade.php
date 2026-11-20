@@ -49,28 +49,30 @@
             <h3 class="section-title">تسجيل الدخول</h3>
             <p class="section-subtitle">أهلاً بعودتك. سجل دخولك لمتابعة رحلتك.</p>
 
-            <form action="#" method="POST">
-                @csrf
-                <!-- حقل البريد الإلكتروني -->
-                <div class="input-group">
-                    <label class="input-label">البريد الإلكتروني</label>
-                    <input type="email" placeholder="name@example.com" class="text-input">
-                </div>
+            <form action="{{ route('login.submit') }}" method="POST">
+    @csrf
+    <!-- حقل البريد الإلكتروني -->
+    <div class="input-group">
+        <label class="input-label">البريد الإلكتروني</label>
+        <input type="email" name="email" value="{{ old('email') }}" placeholder="name@example.com" class="text-input" required>
+    </div>
 
-                <!-- حقل كلمة المرور -->
-                <div class="input-group">
-                    <label class="input-label">كلمة المرور</label>
-                    <input type="password" class="text-input error-border">
-                </div>
+    <!-- حقل كلمة المرور -->
+    <div class="input-group">
+        <label class="input-label">كلمة المرور</label>
+        <input type="password" name="password" class="text-input @error('email') error-border @enderror" required>
+    </div>
 
-                <!-- رسالة الخطأ -->
-                <p class="error-text">البريد الإلكتروني أو كلمة المرور غير صحيحة</p>
+    <!-- رسالة الخطأ (تظهر فقط عند وجود خطأ) -->
+    @if ($errors->any())
+        <p class="error-text">{{ $errors->first() }}</p>
+    @endif
 
-                <!-- زر تسجيل الدخول -->
-                <button type="submit" class="submit-btn">
-                    تسجيل الدخول
-                </button>
-            </form>
+    <!-- زر تسجيل الدخول -->
+    <button type="submit" class="submit-btn">
+        تسجيل الدخول
+    </button>
+</form>
 
             <!-- رابط إنشاء حساب -->
             <div class="register-link-container">

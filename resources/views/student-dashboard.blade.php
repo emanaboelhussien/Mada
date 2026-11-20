@@ -28,22 +28,34 @@
             <a href="{{ route('student.profile') }}" class="nav-item">
                 <i class="far fa-user"></i>
                 <span>ملفي الشخصي</span>
+            </a>
             <a href="{{ route('student.exam') }}" class="nav-item">
-    <i class="far fa-check-square"></i>
-    <span>الاختبار</span>
-</a>
+                <i class="far fa-check-square"></i>
+                <span>الاختبار</span>
+            </a>
             <a href="{{ route('student.opportunities') }}" class="nav-item">
                 <i class="fas fa-graduation-cap"></i>
                 <span>التدريب والمنح</span>
+            </a>
             <a href="{{ route('student.requests') }}" class="nav-item">
-    <i class="far fa-envelope"></i>
-    <span>الطلبات</span>
-</a>
+                <i class="far fa-envelope"></i>
+                <span>الطلبات</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
-            <a href="{{ url('/') }}" class="nav-item logout-link">
-                <i class="fas fa-sign-out-alt"></i>
+            <!-- زر تسجيل الخروج الفعلي (ينهي الجلسة) -->
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit" class="nav-item logout-link" style="width: 100%; background: none; border: none; cursor: pointer; text-align: right; font-family: inherit; font-size: inherit;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </form>
+
+            <!-- رابط العودة للصفحة الرئيسية -->
+            <a href="{{ url('/') }}" class="nav-item">
+                <i class="fas fa-home"></i>
                 <span>العودة للرئيسية</span>
             </a>
         </div>
@@ -52,7 +64,7 @@
     <!-- المحتوى الرئيسي -->
     <main class="main-content">
         <header class="dashboard-header">
-            <h1>أهلاً بك، (اسم الطالب)</h1>
+            <h1>أهلاً بك، {{ Auth::user()->name ?? 'طالب' }}</h1>
         </header>
 
         <!-- البطاقات الثلاث العلوية -->

@@ -56,9 +56,9 @@
     </div>
 
     <div class="hero-buttons">
-        <a href="{{ url('/register') }}" class="btn-orange">ابداً كطالب</a>
-        <a href="{{ url('/register-entity') }}" class="btn-outline-border">سجل جهتك</a>
-    </div>
+    <a href="{{ route('register') }}" class="btn-orange">ابدأ كطالب</a>
+    <a href="{{ url('/register-entity') }}" class="btn-outline-border">سجل جهتك</a>
+</div>
 </div>
 <div class="hero-images">
     <div class="cards-wrapper">
@@ -285,7 +285,6 @@
         لوحة الطالب
     </a>
 
-    <!-- تقدر زميلتك تفعل هذه الأزرار بس تخلص شاشاتها -->
     <a href="/admin/dashboard" style="background: #334155; color: #fff; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 14px;">
         الأدمن
     </a>

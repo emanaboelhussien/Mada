@@ -26,46 +26,56 @@
             <h3>إنشاء حساب جديد</h3>
         </div>
 
-        <form action="#" method="POST">
+        <form action="{{ route('register.submit') }}" method="POST">
             @csrf
 
-  <!-- اختيار نوع الحساب (طالب أو خريج / جهة) -->
-<div class="input-group">
-    <label class="input-label">نوع الحساب</label>
-    <div class="role-selector">
-       <a href="{{ url('/register') }}" class="role-btn active">طالب أو خريج</a>
-    <a href="{{ url('/register-entity') }}" class="role-btn">جهة</a>
-    </div>
-</div>
+            @if ($errors->any())
+                <div class="alert-error" style="background: #fdecea; color: #b71c1c; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 14px;">
+                    <ul style="margin: 0; padding-right: 18px;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <!-- اختيار نوع الحساب (طالب أو خريج / جهة) -->
+            <div class="input-group">
+                <label class="input-label">نوع الحساب</label>
+                <div class="role-selector">
+                    <a href="{{ url('/register') }}" class="role-btn active">طالب أو خريج</a>
+                    <a href="{{ url('/register-entity') }}" class="role-btn">جهة</a>
+                </div>
+            </div>
 
             <!-- الاسم الكامل -->
             <div class="input-group">
                 <label class="input-label" for="name">الاسم الكامل</label>
-                <input type="text" id="name" name="name" class="text-input" placeholder="اسمك الكامل" required>
+                <input type="text" id="name" name="name" value="{{ old('name') }}" class="text-input" placeholder="اسمك الكامل" required>
             </div>
 
             <!-- البريد الإلكتروني -->
             <div class="input-group">
                 <label class="input-label" for="email">البريد الإلكتروني</label>
-                <input type="email" id="email" name="email" class="text-input" placeholder="name@example.com" required>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" class="text-input" placeholder="name@example.com" required>
             </div>
 
             <!-- الجامعة -->
             <div class="input-group">
                 <label class="input-label" for="university">الجامعة</label>
-                <input type="text" id="university" name="university" class="text-input" placeholder="الجامعة الرئيسية | جامعة الأزهر | جامعة الأقصى | أخرى" required>
+                <input type="text" id="university" name="university" value="{{ old('university') }}" class="text-input" placeholder="الجامعة الرئيسية | جامعة الأزهر | جامعة الأقصى | أخرى" required>
             </div>
 
             <!-- التخصص -->
             <div class="input-group">
                 <label class="input-label" for="major">التخصص</label>
-                <input type="text" id="major" name="major" class="text-input" placeholder="علم الحاسوب | تكنولوجيا المعلومات التطبيقية | جامعة أخرى" required>
+                <input type="text" id="major" name="major" value="{{ old('major') }}" class="text-input" placeholder="علم الحاسوب | تكنولوجيا المعلومات التطبيقية | جامعة أخرى" required>
             </div>
 
             <!-- المستوى الدراسي -->
             <div class="input-group">
                 <label class="input-label" for="level">المستوى الدراسي</label>
-                <input type="text" id="level" name="level" class="text-input" placeholder="سنة أولى | ثانية | ثالثة | رابعة | خريج" required>
+                <input type="text" id="level" name="level" value="{{ old('level') }}" class="text-input" placeholder="سنة أولى | ثانية | ثالثة | رابعة | خريج" required>
             </div>
 
             <!-- كلمة المرور -->
