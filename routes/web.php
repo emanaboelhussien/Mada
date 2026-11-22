@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,8 +32,9 @@ Route::middleware('auth')->group(function () {
     // صفحة لوحة تحكم الطالب
     Route::view('/student/dashboard', 'student-dashboard')->name('student.dashboard');
 
-    // صفحة ملفي الشخصي
-    Route::view('/student/profile', 'student-profile')->name('student.profile');
+    // صفحة ملفي الشخصي (عرض وتحديث)
+    Route::get('/student/profile', [ProfileController::class, 'edit'])->name('student.profile');
+    Route::post('/student/profile', [ProfileController::class, 'update'])->name('student.profile.update');
 
     // صفحة التدريب والمنح
     Route::view('/student/opportunities', 'student-opportunities')->name('student.opportunities');
@@ -52,3 +55,20 @@ Route::get('/admin/dashboard', function () {
 Route::get('/system-messages', function () {
     return view('system-messages');
 })->name('system.messages');
+
+Route::get('/entity/dashboard', function () {
+    return view('entity-dashboard');
+})->name('entity.dashboard');
+
+Route::get('/entity/students', function () {
+    return view('entity-students');
+})->name('entity.students');
+
+
+Route::get('/entity/requests', function () {
+    return view('entity-requests');
+})->name('entity.requests');
+
+Route::get('/entity/profile', function () {
+    return view('entity-profile');
+})->name('entity.profile');

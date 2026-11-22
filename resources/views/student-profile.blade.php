@@ -29,17 +29,18 @@
                 <i class="far fa-user"></i>
                 <span>ملفي الشخصي</span>
             </a>
-   <a href="{{ route('student.exam') }}" class="nav-item">
-    <i class="far fa-check-square"></i>
-    <span>الاختبار</span>
-</a>
-         <a href="{{ route('student.opportunities') }}" class="nav-item">
-    <i class="fas fa-graduation-cap"></i>
-    <span>التدريب والمنح</span>
-<a href="{{ route('student.requests') }}" class="nav-item">
-    <i class="far fa-envelope"></i>
-    <span>الطلبات</span>
-</a>
+            <a href="{{ route('student.exam') }}" class="nav-item">
+                <i class="far fa-check-square"></i>
+                <span>الاختبار</span>
+            </a>
+            <a href="{{ route('student.opportunities') }}" class="nav-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>التدريب والمنح</span>
+            </a>
+            <a href="{{ route('student.requests') }}" class="nav-item">
+                <i class="far fa-envelope"></i>
+                <span>الطلبات</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
@@ -58,46 +59,63 @@
 
         <!-- بطاقة نموذج الملف الشخصي -->
         <div class="profile-card">
-            <form action="#" method="POST">
+            @if (session('status'))
+                <div class="alert-success" style="background: #e8f5e9; color: #1b5e20; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 14px;">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert-error" style="background: #fdecea; color: #b71c1c; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 14px;">
+                    <ul style="margin: 0; padding-right: 18px;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('student.profile.update') }}" method="POST">
                 @csrf
+
                 <div class="form-group">
-                    <label for="full_name">الاسم الكامل</label>
-                    <input type="text" id="full_name" name="full_name" class="form-control">
+                    <label for="name">الاسم الكامل</label>
+                    <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="university">الجامعة</label>
-                    <input type="text" id="university" name="university" class="form-control">
+                    <input type="text" id="university" name="university" value="{{ old('university', $user->university) }}" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="major">التخصص</label>
-                    <input type="text" id="major" name="major" class="form-control">
+                    <input type="text" id="major" name="major" value="{{ old('major', $user->major) }}" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="academic_level">المستوى الدراسي</label>
-                    <input type="text" id="academic_level" name="academic_level" class="form-control">
+                    <label for="level">المستوى الدراسي</label>
+                    <input type="text" id="level" name="level" value="{{ old('level', $user->level) }}" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="bio">نبذة عنك</label>
-                    <input type="text" id="bio" name="bio" class="form-control" placeholder="عرّف بنفسك في جملتين">
+                    <input type="text" id="bio" name="bio" value="{{ old('bio', $user->bio) }}" class="form-control" placeholder="عرّف بنفسك في جملتين">
                 </div>
 
                 <div class="form-group">
                     <label for="portfolio">رابط أعمالك أو سيرتك الذاتية</label>
-                    <input type="url" id="portfolio" name="portfolio" class="form-control ltr-input" placeholder="https://github.com/">
+                    <input type="url" id="portfolio" name="portfolio" value="{{ old('portfolio', $user->portfolio) }}" class="form-control ltr-input" placeholder="https://github.com/">
                 </div>
 
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" name="email" class="form-control">
+                    <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">رقم الهاتف (اختياري)</label>
-                    <input type="tel" id="phone" name="phone" class="form-control">
+                    <input type="tel" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" class="form-control">
                 </div>
 
                 <!-- قسم مهاراتي -->
@@ -113,7 +131,7 @@
                         <p>عند التفعيل تستطيع الجهات الموثقة رؤية ملفك ونتيجة اختبارك وإرسال طلب تواصل. لا تظهر بيانات التواصل إلا بعد موافقتك.</p>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" name="is_visible" checked>
+                        <input type="checkbox" name="is_visible" value="1" {{ old('is_visible', $user->is_visible) ? 'checked' : '' }}>
                         <span class="slider"></span>
                     </label>
                 </div>
