@@ -27,15 +27,12 @@
                     <i class="fas fa-user-graduate"></i>
                     <span>الطلاب المتاحون</span>
                 </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-briefcase"></i>
-                    <span>الفرص والدورات</span>
-                </a>
+             
                 <a href="{{ route('entity.requests') }}" class="nav-item">
                     <i class="far fa-paper-plane"></i>
                     <span>طلبات التواصل</span>
                 </a>
-                <a href="{{ route('entity.profile') }}" class="nav-item">
+                <a href="{{ route('entity.profile') }}" class="nav-item active">
         <i class="far fa-building"></i>
         <span>ملف الجهة</span>
     </a>

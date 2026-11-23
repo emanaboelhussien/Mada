@@ -26,43 +26,53 @@
             <h3>تسجيل جهة جديدة</h3>
         </div>
 
-        <form action="#" method="POST">
+        @if ($errors->any())
+            <div class="validation-errors">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('entity.register.store') }}" method="POST">
             @csrf
 
             <!-- اسم الجهة -->
             <div class="input-group">
                 <label class="input-label" for="entity_name">اسم الجهة</label>
-                <input type="text" id="entity_name" name="entity_name" class="text-input" placeholder="اسم الجهة" required>
+                <input type="text" id="entity_name" name="entity_name" class="text-input" value="{{ old('entity_name') }}" placeholder="اسم الجهة" required>
             </div>
 
             <!-- نوع الجهة -->
             <div class="input-group">
                 <label class="input-label" for="entity_type">نوع الجهة</label>
-                <input type="text" id="entity_type" name="entity_type" class="text-input" placeholder="شركة | مؤسسة | مركز تدريب | جهة مانحة | أخرى" required>
+                <input type="text" id="entity_type" name="entity_type" class="text-input" value="{{ old('entity_type') }}" placeholder="شركة | مؤسسة | مركز تدريب | جهة مانحة | أخرى" required>
             </div>
 
             <!-- البريد الرسمي للجهة -->
             <div class="input-group">
                 <label class="input-label" for="email">البريد الرسمي للجهة</label>
-                <input type="email" id="email" name="email" class="text-input" placeholder="name@example.com" required>
+                <input type="email" id="email" name="email" class="text-input" value="{{ old('email') }}" placeholder="name@example.com" required>
             </div>
 
             <!-- رقم الهاتف -->
             <div class="input-group">
                 <label class="input-label" for="phone">رقم الهاتف</label>
-                <input type="text" id="phone" name="phone" class="text-input" placeholder="رقم الهاتف" required>
+                <input type="text" id="phone" name="phone" class="text-input" value="{{ old('phone') }}" placeholder="رقم الهاتف" required>
             </div>
 
             <!-- رابط الموقع أو الصفحة الرسمية -->
             <div class="input-group">
                 <label class="input-label" for="website">رابط الموقع أو الصفحة الرسمية</label>
-                <input type="url" id="website" name="website" class="text-input" placeholder="https://..." required>
+                <input type="url" id="website" name="website" class="text-input" value="{{ old('website') }}" placeholder="https://..." required>
             </div>
 
             <!-- نبذة عن الجهة -->
             <div class="input-group">
                 <label class="input-label" for="bio">نبذة عن الجهة</label>
-                <input type="text" id="bio" name="bio" class="text-input" placeholder="نبذة مختصرة عن الجهة" required>
+                <input type="text" id="bio" name="bio" class="text-input" value="{{ old('bio') }}" placeholder="نبذة مختصرة عن الجهة" required>
             </div>
 
             <!-- كلمة المرور -->

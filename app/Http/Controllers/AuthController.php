@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
     // دالة تفحص الإيميل وكلمة المرور
@@ -25,14 +27,25 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             // توجيه المستخدم حسب دوره (طالب، جهة، أو أدمن)
-            $role = Auth::user()->role ?? 'student';
+            $user = Auth::user();
+            $role = $user->role ?? 'student';
 
             if ($role === 'admin') {
                 return redirect('/admin/dashboard');
             }
 
             if ($role === 'entity') {
-                return redirect('/entity/search');
+                if (!(bool) ($user->is_approved ?? false)) {
+                    Auth::logout();
+                    $request->session()->invalidate();
+                    $request->session()->regenerateToken();
+
+                    return redirect()->route('login')->withErrors([
+                        'email' => 'حساب الجهة قيد المراجعة ولم يتم اعتماده بعد من قِبل الإدارة.',
+                    ])->onlyInput('email');
+                }
+
+                return redirect()->route('entity.dashboard');
             }
 
             return redirect()->route('student.dashboard');
@@ -43,45 +56,46 @@ class AuthController extends Controller
             'email' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
         ])->onlyInput('email');
     }
+
     public function logout(Request $request)
-{
+    {
+        Auth::logout();
 
-    Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+        return redirect()->route('login');
+    }
 
-    return redirect()->route('login');
-}
-public function showRegister()
-{
-    return view('register'); 
-}
+    public function showRegister()
+    {
+        return view('register');
+    }
 
-public function register(Request $request)
-{
-    $validated = $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-        'university' => ['required', 'string', 'max:255'],
-        'major' => ['required', 'string', 'max:255'],
-        'level' => ['required', 'string', 'max:255'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-    ]);
+    public function register(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'university' => ['required', 'string', 'max:255'],
+            'major' => ['required', 'string', 'max:255'],
+            'level' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
 
-    $user = User::create([
-        'name' => $validated['name'],
-        'email' => $validated['email'],
-        'university' => $validated['university'],
-        'major' => $validated['major'],
-        'level' => $validated['level'],
-        'password' => Hash::make($validated['password']),
-        'role' => 'student',
-    ]);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'university' => $validated['university'],
+            'major' => $validated['major'],
+            'level' => $validated['level'],
+            'password' => Hash::make($validated['password']),
+            'role' => 'student',
+        ]);
 
-    Auth::login($user);
-    $request->session()->regenerate();
+        Auth::login($user);
+        $request->session()->regenerate();
 
-    return redirect()->route('student.dashboard');
-}
+        return redirect()->route('student.dashboard');
+    }
 }

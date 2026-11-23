@@ -3,49 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الاختبار - منصة مدى</title>
-    <!-- استدعاء خط تجوال -->
+    <title>اختبار تحديد المستوى - منصة مدى</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- ملف التنسيق المشترك للوحة التحكم -->
     <link rel="stylesheet" href="{{ asset('css/mada-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mada-exam.css') }}">
 </head>
 <body>
 
+@php
+    $user = $user ?? Auth::user();
+@endphp
+
 <div class="dashboard-wrapper">
-    <!-- القائمة الجانبية (Sidebar) -->
+    <!-- القائمة الجانبية -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <h2>مدى</h2>
         </div>
 
         <nav class="sidebar-nav">
-            <a href="{{ route('student.dashboard') }}" class="nav-item">
+            <a href="{{ route('student.dashboard') }}"
+               class="nav-item {{ request()->routeIs('student.dashboard') ? 'active' : '' }}">
                 <i class="fas fa-th-large"></i>
                 <span>لوحتي</span>
             </a>
-            <a href="{{ route('student.profile') }}" class="nav-item">
+            <a href="{{ route('student.profile') }}"
+               class="nav-item {{ request()->routeIs('student.profile*') ? 'active' : '' }}">
                 <i class="far fa-user"></i>
                 <span>ملفي الشخصي</span>
             </a>
-            <a href="{{ route('student.exam') }}" class="nav-item active">
+            <a href="{{ route('student.exam') }}"
+               class="nav-item {{ request()->routeIs('student.exam*') ? 'active' : '' }}">
                 <i class="far fa-check-square"></i>
                 <span>الاختبار</span>
             </a>
-            <a href="{{ route('student.opportunities') }}" class="nav-item">
+            <a href="{{ route('student.opportunities') }}"
+               class="nav-item {{ request()->routeIs('student.opportunities*') ? 'active' : '' }}">
                 <i class="fas fa-graduation-cap"></i>
                 <span>التدريب والمنح</span>
             </a>
-            <a href="{{ route('student.requests') }}" class="nav-item">
+            <a href="{{ route('student.requests') }}"
+               class="nav-item {{ request()->routeIs('student.requests*') ? 'active' : '' }}">
                 <i class="far fa-envelope"></i>
                 <span>الطلبات</span>
             </a>
         </nav>
 
         <div class="sidebar-footer">
-            <a href="{{ url('/') }}" class="nav-item logout-link">
-                <i class="fas fa-sign-out-alt"></i>
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit" class="nav-item logout-link logout-btn-reset">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </form>
+
+            <a href="{{ url('/') }}" class="nav-item">
+                <i class="fas fa-home"></i>
                 <span>العودة للرئيسية</span>
             </a>
         </div>
@@ -53,132 +68,148 @@
 
     <!-- المحتوى الرئيسي -->
     <main class="main-content">
-        <!-- المرحلة 1: اختيار مجال الاختبار -->
-        <div id="exam-intro-view">
+        @if (!$selectedTrack)
+            <!-- المرحلة 1: اختيار المجال قبل بدء الاختبار -->
             <header class="dashboard-header">
                 <h1>اختبار تحديد المستوى</h1>
-                <p class="header-subtitle">اختر مجالك التقني لأداء الاختبار وتحديد مستواك للجهات الموثقة</p>
             </header>
 
-            <div class="tracks-grid">
-                <!-- بطاقة مجال تطوير الويب -->
-                <div class="track-card">
-                    <div class="track-header">
+            @if ($user && $user->exam_completed)
+                <div class="previous-result-banner">
+                    <strong>نتيجتك الحالية المسجلة:</strong>
+                    المجال: {{ $user->exam_track === 'ai' ? 'الذكاء الاصطناعي' : 'تطوير الويب' }} |
+                    الدرجة: {{ $user->exam_score }} / 20 |
+                    المستوى: {{ $user->exam_level }}
+                </div>
+            @endif
+
+            <p class="exam-intro-text">
+                اختر المجال الذي ترغب في تحديد مستواك فيه. يتكون كل اختبار من <strong>20 سؤالاً</strong> ومدة <strong>20 دقيقة</strong>، وعند انتهاء الوقت يتم تسليم إجاباتك تلقائياً.
+            </p>
+
+            <div class="tracks-selection-grid">
+                <div class="track-choice-card">
+                    <div>
                         <div class="track-icon"><i class="fas fa-code"></i></div>
-                        <span class="badge badge-open">15 سؤال • 20 دقيقة</span>
+                        <h3>تطوير الويب (Web Development)</h3>
+                        <p class="track-meta">
+                            يشمل أساسيات HTML، CSS، JavaScript، وقواعد Laravel وقواعد البيانات.<br>
+                            <strong>عدد الأسئلة:</strong> 20 سؤالاً &bull; <strong>المدة:</strong> 20 دقيقة
+                        </p>
                     </div>
-                    <h3 class="track-title">تطوير الويب (Web Development)</h3>
-                    <p class="track-desc">يشمل أساسيات HTML5, CSS3, JavaScript وبناء واجهات المستخدم التفاعلية.</p>
-                    <div class="track-footer">
-                        <button type="button" class="btn-start-exam" onclick="startExam('اختبار تطوير الويب')">ابدأ الاختبار</button>
-                    </div>
+                    <a href="{{ route('student.exam', ['track' => 'web']) }}" class="btn-start-track">
+                        بدء اختبار تطوير الويب
+                    </a>
                 </div>
 
-                <!-- بطاقة مجال تحليل البيانات والذكاء الاصطناعي -->
-                <div class="track-card">
-                    <div class="track-header">
-                        <div class="track-icon"><i class="fas fa-chart-line"></i></div>
-                        <span class="badge badge-open">15 سؤال • 20 دقيقة</span>
+                <div class="track-choice-card">
+                    <div>
+                        <div class="track-icon"><i class="fas fa-brain"></i></div>
+                        <h3>الذكاء الاصطناعي (AI)</h3>
+                        <p class="track-meta">
+                            يشمل مفاهيم التعلم الآلي، تحليل البيانات، الشبكات العصبية، ومعالجة اللغات.<br>
+                            <strong>عدد الأسئلة:</strong> 20 سؤالاً &bull; <strong>المدة:</strong> 20 دقيقة
+                        </p>
                     </div>
-                    <h3 class="track-title">تحليل البيانات والذكاء الاصطناعي</h3>
-                    <p class="track-desc">يشمل أساسيات Python، تحليل البيانات، الإحصاء، وتعلم الآلة.</p>
-                    <div class="track-footer">
-                        <button type="button" class="btn-start-exam" onclick="startExam('اختبار تحليل البيانات والذكاء الاصطناعي')">ابدأ الاختبار</button>
-                    </div>
-                </div>
-
-                <!-- بطاقة مجال برمجة تطبيقات الموبايل -->
-                <div class="track-card">
-                    <div class="track-header">
-                        <div class="track-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <span class="badge badge-open">15 سؤال • 20 دقيقة</span>
-                    </div>
-                    <h3 class="track-title">تطوير تطبيقات الموبايل (Flutter & Dart)</h3>
-                    <p class="track-desc">يشمل أساسيات لغة Dart وبناء الواجهات وإدارة الحالة في تطبيقات الهواتف.</p>
-                    <div class="track-footer">
-                        <button type="button" class="btn-start-exam" onclick="startExam('اختبار تطوير تطبيقات الموبايل')">ابدأ الاختبار</button>
-                    </div>
+                    <a href="{{ route('student.exam', ['track' => 'ai']) }}" class="btn-start-track">
+                        بدء اختبار الذكاء الاصطناعي
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <!-- المرحلة 2: واجهة الأسئلة (مطابقة لتصميم الفيجما) -->
-        <div id="exam-question-view" style="display: none;">
-            <header class="dashboard-header exam-top-bar">
-                <div>
-                    <h1 id="exam-title">اختبار تطوير الويب</h1>
-                    <span class="question-counter">السؤال 3 من 15</span>
-                </div>
-                <div class="exam-timer">
-                    <i class="far fa-clock"></i> 18:45
-                </div>
+        @else
+            <!-- المرحلة 2: عرض أسئلة المجال المختار مع العداد التنازلي -->
+            @php
+                $currentTrackData = $bank[$selectedTrack];
+                $questions = $currentTrackData['questions'];
+            @endphp
+
+            <header class="dashboard-header">
+                <h1>اختبار تحديد المستوى — {{ $currentTrackData['title'] }}</h1>
             </header>
 
-            <!-- شريط التقدم -->
-            <div class="exam-progress-wrapper">
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 20%;"></div>
+            <div class="timer-sticky-bar">
+                <div>
+                    <strong>المجال:</strong> {{ $currentTrackData['title'] }} (20 سؤالاً)
+                </div>
+                <div id="timerBox" class="timer-badge">
+                    <i class="far fa-clock"></i>
+                    <span>الوقت المتبقي: <strong id="timerDisplay">20:00</strong></span>
                 </div>
             </div>
 
-            <!-- بطاقة السؤال والخيارات -->
-            <div class="question-card">
-                <h2 class="question-text">ما وسم HTML المستخدم لإنشاء رابط تشعبي؟</h2>
+            <form id="examForm" action="{{ route('student.exam.submit') }}" method="POST">
+                @csrf
+                <input type="hidden" name="track" value="{{ $selectedTrack }}">
 
-                <div class="options-list">
-                    <label class="option-item selected" onclick="selectOption(this)">
-                        <input type="radio" name="answer" checked>
-                        <span class="option-letter">أ.</span>
-                        <span class="option-code">&lt;a&gt;</span>
-                    </label>
+                @foreach ($questions as $question)
+                    <div class="question-card">
+                        <div class="question-title">
+                            {{ $question['id'] }}. {{ $question['q'] }}
+                        </div>
+                        <div class="options-grid">
+                            @foreach ($question['options'] as $key => $optionText)
+                                <label class="option-label">
+                                    <input type="radio"
+                                           name="answers[{{ $question['id'] }}]"
+                                           value="{{ $key }}">
+                                    <span>{{ $optionText }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
 
-                    <label class="option-item" onclick="selectOption(this)">
-                        <input type="radio" name="answer">
-                        <span class="option-letter">ب.</span>
-                        <span class="option-code">&lt;link&gt;</span>
-                    </label>
-
-                    <label class="option-item" onclick="selectOption(this)">
-                        <input type="radio" name="answer">
-                        <span class="option-letter">ج.</span>
-                        <span class="option-code">&lt;href&gt;</span>
-                    </label>
-
-                    <label class="option-item" onclick="selectOption(this)">
-                        <input type="radio" name="answer">
-                        <span class="option-letter">د.</span>
-                        <span class="option-code">&lt;url&gt;</span>
-                    </label>
+                <div class="submit-exam-bar">
+                    <a href="{{ route('student.exam') }}" class="btn-back-tracks">
+                        &rarr; إلغاء والعودة لاختيار المجال
+                    </a>
+                    <button type="submit" class="btn-submit-exam">
+                        <i class="fas fa-paper-plane"></i> إنهاء وحفظ النتيجة
+                    </button>
                 </div>
+            </form>
 
-                <!-- أزرار التنقل بين الأسئلة -->
-                <div class="question-actions">
-                    <button type="button" class="btn-prev" onclick="backToTracks()">السابق</button>
-                    <button type="button" class="btn-next">التالي</button>
-                </div>
-            </div>
-        </div>
+            <script>
+                (function () {
+                    let remainingSeconds = 20 * 60;
+                    const timerDisplay = document.getElementById('timerDisplay');
+                    const timerBox = document.getElementById('timerBox');
+                    const examForm = document.getElementById('examForm');
+                    let isSubmitting = false;
+
+                    examForm.addEventListener('submit', function () {
+                        isSubmitting = true;
+                    });
+
+                    const interval = setInterval(function () {
+                        remainingSeconds--;
+
+                        if (remainingSeconds <= 180) {
+                            timerBox.classList.add('warning');
+                        }
+
+                        if (remainingSeconds <= 0) {
+                            clearInterval(interval);
+                            timerDisplay.textContent = '00:00';
+                            if (!isSubmitting) {
+                                isSubmitting = true;
+                                alert('انتهى وقت الاختبار! سيتم تسليم إجاباتك وحساب نتيجتك الآن.');
+                                examForm.submit();
+                            }
+                            return;
+                        }
+
+                        const minutes = Math.floor(remainingSeconds / 60);
+                        const seconds = remainingSeconds % 60;
+                        timerDisplay.textContent =
+                            String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                    }, 1000);
+                })();
+            </script>
+        @endif
     </main>
 </div>
-
-<script>
-    function startExam(title) {
-        document.getElementById('exam-title').innerText = title;
-        document.getElementById('exam-intro-view').style.display = 'none';
-        document.getElementById('exam-question-view').style.display = 'block';
-    }
-
-    function backToTracks() {
-        document.getElementById('exam-question-view').style.display = 'none';
-        document.getElementById('exam-intro-view').style.display = 'block';
-    }
-
-    function selectOption(element) {
-        document.querySelectorAll('.option-item').forEach(opt => opt.classList.remove('selected'));
-        element.classList.add('selected');
-        element.querySelector('input').checked = true;
-    }
-</script>
 
 </body>
 </html>

@@ -32,10 +32,6 @@
                 </a>
 
 
-                <a href="#" class="nav-item">
-                    <i class="fas fa-briefcase"></i>
-                    <span>الفرص والدورات</span>
-                </a>
                <a href="{{ route('entity.requests') }}" class="nav-item">
     <i class="far fa-paper-plane"></i>
     <span>طلبات التواصل</span>

@@ -20,7 +20,7 @@
             background-color: var(--active-pill-bg);
             color: var(--primary-teal);
         }
-        /* تنسيقات نافذة تأكيد الحذف المنبثقة */
+
         .modal-desc-delete {
             font-size: 0.88rem;
             color: var(--primary-teal);
@@ -47,7 +47,7 @@
 <body class="admin-body">
 
     <div class="admin-layout">
-        
+
         <!-- القائمة الجانبية اليمنى الداكنة -->
         <aside class="admin-sidebar">
             <div class="sidebar-header">
@@ -72,7 +72,7 @@
 
         <!-- المحتوى الرئيسي -->
         <main class="admin-main">
-            
+
             <!-- 1. الرئيسية -->
             <section id="home-section" class="admin-section active-section">
                 @include('admin.home')
@@ -101,10 +101,13 @@
         <div class="modal-box">
             <h3 class="modal-title">تأكيد الموافقة على الجهة؟</h3>
             <p class="modal-desc">ستتمكن الجهة من البحث عن الطلبة وإرسال طلبات التواصل.</p>
-            <div class="modal-actions">
-                <button type="button" class="btn-modal-confirm" onclick="closeModal('approveModal')">موافقة</button>
-                <button type="button" class="btn-modal-cancel" onclick="closeModal('approveModal')">إلغاء</button>
-            </div>
+            <form id="approveEntityForm" method="POST" action="">
+                @csrf
+                <div class="modal-actions">
+                    <button type="submit" class="btn-modal-confirm">موافقة</button>
+                    <button type="button" class="btn-modal-cancel" onclick="closeModal('approveModal')">إلغاء</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -130,7 +133,9 @@
             element.classList.add('active-nav');
         }
 
-        function openApproveModal() {
+        function openApproveModal(entityId) {
+            const form = document.getElementById('approveEntityForm');
+            form.action = `/admin/entities/${entityId}/approve`;
             document.getElementById('approveModal').style.display = 'flex';
         }
 

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,19 +17,30 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-  protected $fillable = [
-    'name',
-    'email',
-    'password',
-    'role',
-    'university',
-    'major',
-    'level',
-    'bio',
-    'portfolio',
-    'phone',
-    'is_visible',
-];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role',
+        'entity_name',
+        'entity_type',
+        'website',
+        'is_approved',
+        'university',
+        'major',
+        'level',
+        'bio',
+        'portfolio',
+        'phone',
+        'is_visible',
+        // حقول اختبار تحديد المستوى
+        'exam_completed',
+        'exam_track',
+        'exam_score',
+        'exam_level',
+        'exam_completed_at',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,6 +61,10 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_visible' => 'boolean',
+            'is_approved' => 'boolean',
+            'exam_completed' => 'boolean',
+            'exam_completed_at' => 'datetime',
         ];
     }
 }
