@@ -28,17 +28,19 @@
             <a href="{{ route('student.profile') }}" class="nav-item">
                 <i class="far fa-user"></i>
                 <span>ملفي الشخصي</span>
+            </a>
             <a href="{{ route('student.exam') }}" class="nav-item">
-    <i class="far fa-check-square"></i>
-    <span>الاختبار</span>
-</a>
+                <i class="far fa-check-square"></i>
+                <span>الاختبار</span>
+            </a>
             <a href="{{ route('student.opportunities') }}" class="nav-item active">
                 <i class="fas fa-graduation-cap"></i>
                 <span>التدريب والمنح</span>
+            </a>
             <a href="{{ route('student.requests') }}" class="nav-item">
-    <i class="far fa-envelope"></i>
-    <span>الطلبات</span>
-</a>
+                <i class="far fa-envelope"></i>
+                <span>الطلبات</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
@@ -58,83 +60,104 @@
         <!-- قسم البحث والتصفية (Filters) -->
         <div class="filter-section">
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="ابحث عن فرصة">
+                <input type="text" id="oppSearchInput" class="search-input" placeholder="ابحث عن فرصة" oninput="applyOppFilters()">
             </div>
 
             <div class="filter-controls">
                 <div class="filter-tabs">
-                    <button type="button" class="filter-tab active">الكل</button>
-                    <button type="button" class="filter-tab">تدريب ميداني</button>
-                    <button type="button" class="filter-tab">منح</button>
+                    <button type="button" class="filter-tab active" onclick="setTypeFilter('all', this)">الكل</button>
+                    <button type="button" class="filter-tab" onclick="setTypeFilter('تدريب ميداني', this)">تدريب ميداني</button>
+                    <button type="button" class="filter-tab" onclick="setTypeFilter('منح', this)">منح</button>
                 </div>
 
                 <div class="filter-select-group">
-                    <select class="filter-select">
+                    <select id="oppFieldSelect" class="filter-select">
                         <option value="">المجال، الحالة: مفتوحة/مغلقة</option>
-                        <option value="web">تطوير الويب - مفتوحة</option>
-                        <option value="ai">الذكاء الاصطناعي - مفتوحة</option>
+                        <option value="تطوير الويب">تطوير الويب - مفتوحة</option>
+                        <option value="الذكاء الاصطناعي">الذكاء الاصطناعي - مفتوحة</option>
                         <option value="closed">مغلقة</option>
                     </select>
-                    <button type="button" class="btn-apply-filter">تطبيق</button>
+                    <button type="button" class="btn-apply-filter" onclick="applyOppFilters()">تطبيق</button>
                 </div>
             </div>
         </div>
 
         <!-- شبكة بطاقات الفرص -->
-        <div class="opportunities-grid">
-            <!-- بطاقة 1: تدريب ميداني -->
-            <div class="opp-card">
-                <div class="opp-badges">
-                    <span class="badge badge-type">تدريب ميداني</span>
-                    <span class="badge badge-open">مفتوحة</span>
+        <div class="opportunities-grid" id="opportunitiesGrid">
+            @forelse ($opportunities ?? [] as $opportunity)
+                @php
+                    $isOpen = ($opportunity->status ?? 'مفتوحة') === 'مفتوحة';
+                @endphp
+                <div class="opp-card"
+                     data-title="{{ mb_strtolower($opportunity->title . ' ' . $opportunity->organization_name . ' ' . ($opportunity->field ?? '')) }}"
+                     data-type="{{ $opportunity->type }}"
+                     data-field="{{ $opportunity->field ?? '' }}"
+                     data-status="{{ $isOpen ? 'open' : 'closed' }}">
+                    <div class="opp-badges">
+                        <span class="badge badge-type">{{ $opportunity->type }}</span>
+                        <span class="badge {{ $isOpen ? 'badge-open' : 'badge-closed' }}">
+                            {{ $opportunity->status ?? 'مفتوحة' }}
+                        </span>
+                    </div>
+                    <h3 class="opp-title">{{ $opportunity->title }}</h3>
+                    <div class="opp-meta">
+                        <p>
+                            الجهة: {{ $opportunity->organization_name }}
+                            @if (!empty($opportunity->field))
+                                ، المجال: {{ $opportunity->field }}
+                            @endif
+                        </p>
+                        <p>آخر موعد للتقديم: {{ optional($opportunity->deadline)->format('d/m/Y') ?? 'غير محدد' }}</p>
+                        <p>آخر تحقق: {{ optional($opportunity->last_verified_at)->format('d/m/Y') ?? optional($opportunity->created_at)->format('d/m/Y') }}</p>
+                    </div>
+                    <div class="opp-footer">
+                        <a href="javascript:void(0);" class="btn-details">التفاصيل</a>
+                    </div>
                 </div>
-                <h3 class="opp-title">متدرب تطوير ويب</h3>
-                <div class="opp-meta">
-                    <p>الجهة: اسم الجهة، المجال: تطوير الويب</p>
-                    <p>آخر موعد للتقديم: 15/12/2026</p>
-                    <p>آخر تحقق: 28/10/2026</p>
-                </div>
-                <div class="opp-footer">
-                    <a href="#" class="btn-details">التفاصيل</a>
-                </div>
-            </div>
-
-            <!-- بطاقة 2: منحة دراسية مفتوحة -->
-            <div class="opp-card">
-                <div class="opp-badges">
-                    <span class="badge badge-type">منحة</span>
-                    <span class="badge badge-open">مفتوحة</span>
-                </div>
-                <h3 class="opp-title">منحة دراسية (مثال)</h3>
-                <div class="opp-meta">
-                    <p>الجهة: اسم الجهة، المجال: تطوير الويب</p>
-                    <p>آخر موعد للتقديم: 15/12/2026</p>
-                    <p>آخر تحقق: 28/10/2026</p>
-                </div>
-                <div class="opp-footer">
-                    <a href="#" class="btn-details">التفاصيل</a>
-                </div>
-            </div>
-
-            <!-- بطاقة 3: منحة منتهية -->
-            <div class="opp-card">
-                <div class="opp-badges">
-                    <span class="badge badge-type">منحة</span>
-                    <span class="badge badge-closed">منتهية</span>
-                </div>
-                <h3 class="opp-title">منحة (مثال)</h3>
-                <div class="opp-meta">
-                    <p>الجهة: اسم الجهة، المجال: تطوير الويب</p>
-                    <p>آخر موعد للتقديم: 15/12/2026</p>
-                    <p>آخر تحقق: 28/10/2026</p>
-                </div>
-                <div class="opp-footer">
-                    <a href="#" class="btn-details">التفاصيل</a>
-                </div>
-            </div>
+            @empty
+                <p style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                    لا توجد فرص تدريب أو منح متاحة حالياً.
+                </p>
+            @endforelse
         </div>
     </main>
 </div>
+
+<script>
+    let selectedOppType = 'all';
+
+    function setTypeFilter(type, btn) {
+        selectedOppType = type;
+        document.querySelectorAll('.filter-tabs .filter-tab').forEach(tab => tab.classList.remove('active'));
+        btn.classList.add('active');
+        applyOppFilters();
+    }
+
+    function applyOppFilters() {
+        const searchTerm = (document.getElementById('oppSearchInput').value || '').trim().toLowerCase();
+        const selectVal = document.getElementById('oppFieldSelect').value;
+
+        document.querySelectorAll('#opportunitiesGrid .opp-card').forEach(card => {
+            const titleText = card.dataset.title || '';
+            const cardType = card.dataset.type || '';
+            const cardField = card.dataset.field || '';
+            const cardStatus = card.dataset.status || '';
+
+            const matchesSearch = !searchTerm || titleText.includes(searchTerm);
+            const matchesType = selectedOppType === 'all'
+                || (selectedOppType === 'منح' ? cardType.includes('منح') : cardType === selectedOppType);
+
+            let matchesSelect = true;
+            if (selectVal === 'closed') {
+                matchesSelect = (cardStatus === 'closed');
+            } else if (selectVal) {
+                matchesSelect = (cardField === selectVal && cardStatus === 'open');
+            }
+
+            card.style.display = (matchesSearch && matchesType && matchesSelect) ? '' : 'none';
+        });
+    }
+</script>
 
 </body>
 </html>

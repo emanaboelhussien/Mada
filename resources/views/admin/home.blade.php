@@ -11,7 +11,7 @@
     </div>
     <div class="admin-stat-card">
         <span class="stat-label">فرص مفتوحة</span>
-        <strong class="stat-number">18</strong>
+        <strong class="stat-number">{{ $openOpportunitiesCount ?? 0 }}</strong>
     </div>
     <div class="admin-stat-card">
         <span class="stat-label">طلاب مسجلون</span>
@@ -19,6 +19,6 @@
     </div>
     <div class="admin-stat-card">
         <span class="stat-label">أسئلة الاختبار</span>
-        <strong class="stat-number">60</strong>
+        <strong class="stat-number">{{ $questionsCount ?? 0 }}</strong>
     </div>
 </div>

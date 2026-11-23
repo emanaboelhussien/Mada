@@ -40,7 +40,11 @@
                         @if (!$isApproved)
                             <div class="action-buttons">
                                 <button type="button" class="btn-accept" onclick="openApproveModal({{ $entity->id }})">قبول</button>
-                                <button type="button" class="btn-reject">رفض</button>
+                               <form method="POST" action="{{ route('admin.entities.reject', $entity->id) }}" style="display:inline;" onsubmit="return confirm('هل أنت متأكد من رفض وحذف هذه الجهة؟');">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn-reject">رفض</button>
+</form>
                             </div>
                         @else
                             <span style="color: #2F855A; font-weight: 700;">مفعّلة</span>

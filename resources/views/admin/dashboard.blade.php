@@ -111,15 +111,19 @@
         </div>
     </div>
 
-    <!-- نافذة تأكيد حذف الفرصة (Delete Modal الجديدة) -->
+    <!-- نافذة تأكيد حذف الفرصة -->
     <div id="deleteModal" class="modal-overlay" onclick="outsideClick(event, 'deleteModal')">
         <div class="modal-box">
             <h3 class="modal-title">حذف الفرصة</h3>
             <p class="modal-desc-delete">سيتم حذف هذه الفرصة نهائياً ولن تظهر للطلبة</p>
-            <div class="modal-actions">
-                <button type="button" class="btn-modal-delete" onclick="confirmDelete()">حذف</button>
-                <button type="button" class="btn-modal-cancel" onclick="closeModal('deleteModal')">إلغاء</button>
-            </div>
+            <form id="deleteOpportunityForm" method="POST" action="">
+                @csrf
+                @method('DELETE')
+                <div class="modal-actions">
+                    <button type="submit" class="btn-modal-delete">حذف</button>
+                    <button type="button" class="btn-modal-cancel" onclick="closeModal('deleteModal')">إلغاء</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -139,7 +143,9 @@
             document.getElementById('approveModal').style.display = 'flex';
         }
 
-        function openDeleteModal() {
+        function openDeleteModal(deleteUrl) {
+            const form = document.getElementById('deleteOpportunityForm');
+            form.action = deleteUrl;
             document.getElementById('deleteModal').style.display = 'flex';
         }
 
